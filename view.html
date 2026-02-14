@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>عرض العميل - LG</title>
+  <link rel="stylesheet" href="soft-ui.css">
+  <style>
+    .hint{
+      margin:14px 0; padding:12px; border-radius:18px;
+      border:1px dashed rgba(255,255,255,.18);
+      background: rgba(255,255,255,.03);
+      line-height:1.8;
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 10px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+      font-size:12px; color: var(--muted); font-weight:800;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="topbar">
+      <div>
+        <div class="title">عرض المنتجات المختارة</div>
+        <div class="subtitle">العميل يشاهد الاختيارات فقط (صور + إمكانيات)</div>
+
+        <div class="nav">
+          <a href="index.html">الرئيسية</a>
+          <a href="ac.html">تكييفات</a>
+          <a href="washers.html">غسالات</a>
+          <a href="fridges.html">ثلاجات</a>
+          <a href="builtin.html">Built-in</a>
+          <a class="active" href="view.html">عرض العميل</a>
+        </div>
+      </div>
+
+      <button class="btn btnGhost" id="btnBack">رجوع</button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div id="status" class="hint">جاري تحميل البيانات…</div>
+  <main id="content"></main>
+</div>
+
+<div class="wrap spacer"></div>
+
+<script>
+const statusEl = document.getElementById("status");
+const contentEl = document.getElementById("content");
+
+document.getElementById("btnBack").onclick = () => history.back();
+
+function getParam(name){
+  const url = new URL(location.href);
+  return url.searchParams.get(name) || "";
+}
+
+function safeDecodePayload(encoded){
+  try{
+    const b64 = decodeURIComponent(encoded);
+    const json = decodeURIComponent(escape(atob(b64)));
+    const data = JSON.parse(json);
+    return Array.isArray(data) ? data : [];
+  }catch(e){
+    return null;
+  }
+}
+
+function renderDims(p){
+  if(!p.dims) return "";
+
+  const w = p.dims.w ?? "—";
+  const h = p.dims.h ?? "—";
+  const d = p.dims.d ?? "—";
+
+  return `
+    <div class="dimsBox">
+      <div class="dimsTitle">الأبعاد</div>
+      <div>${w} × ${d} × ${h}</div>
+    </div>
+  `;
+}
+
+function render(items){
+  if(!items || items.length === 0){
+    statusEl.innerHTML = `
+      <b>مفيش بيانات للعرض.</b><br>
+      اعمل "إنشاء لينك" من السلة الأول.
+    `;
+    contentEl.innerHTML = "";
+    return;
+  }
+
+  statusEl.innerHTML = `
+    تم تحميل <b>${items.length}</b> موديل ✅
+    <span class="small">— هذه الصفحة تعرض الاختيارات فقط.</span>
+  `;
+
+  const map = new Map();
+  items.forEach(p => {
+    const k = p.line || "اختيارات";
+    if(!map.has(k)) map.set(k, []);
+    map.get(k).push(p);
+  });
+
+  contentEl.innerHTML = "";
+
+  Array.from(map.keys()).forEach(lineName => {
+    const arr = map.get(lineName) || [];
+    const sec = document.createElement("section");
+    sec.className = "section";
+    sec.innerHTML = `<h2>${lineName}</h2><div class="grid"></div>`;
+    const grid = sec.querySelector(".grid");
+
+    arr.forEach(p => {
+      const card = document.createElement("div");
+      card.className = "card";
+
+      card.innerHTML = `
+        <div class="cardMedia">
+          <img src="${p.img || ""}" alt="">
+        </div>
+
+        <div class="p">
+          <div class="metaRow">
+            ${p.section ? `<span class="badge">${p.section}</span>` : ``}
+            ${p.model ? `<span class="badge">موديل: ${p.model}</span>` : ``}
+          </div>
+
+          <div class="name">${p.name || p.model || "—"}</div>
+
+          ${
+            Array.isArray(p.features) && p.features.length
+              ? `<ul>${p.features.map(f => `<li>${f}</li>`).join("")}</ul>`
+              : `<div class="small">لا توجد تفاصيل إضافية.</div>`
+          }
+
+          ${renderDims(p)}
+        </div>
+      `;
+
+      grid.appendChild(card);
+    });
+
+    contentEl.appendChild(sec);
+  });
+}
+
+const c = getParam("c");
+
+if(!c){
+  statusEl.innerHTML = `
+    <b>افتح الصفحة من لينك العميل.</b><br>
+    اختار موديلات → اضغط "إنشاء لينك" → افتح اللينك.
+  `;
+}else{
+  const data = safeDecodePayload(c);
+  if(data === null){
+    statusEl.innerHTML = `
+      <b>اللينك غير صالح.</b><br>
+      اعمل لينك جديد من السلة.
+    `;
+  }else{
+    render(data);
+  }
+}
+</script>
+
+</body>
+</html>

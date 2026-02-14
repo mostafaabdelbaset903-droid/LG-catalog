@@ -1,0 +1,359 @@
+/* soft-ui.css (Light + LG Red + Light Green + Glass Cards + WhatsApp FAB)
+   ضع الملف بجانب ac.html و washers.html و fridges.html و view.html
+*/
+
+:root{
+  /* Light background */
+  --bg: #f3f6fb;
+  --bg2:#eef3f9;
+
+  /* Glass surfaces */
+  --surface: rgba(255,255,255,.72);
+  --surface2: rgba(255,255,255,.58);
+  --stroke: rgba(15,23,42,.10);
+  --stroke2: rgba(15,23,42,.14);
+
+  --text: #0f172a;
+  --muted: rgba(15,23,42,.62);
+
+  /* Brand colors */
+  --lgRed: #a50034;         /* LG Red */
+  --green: #34d399;         /* Light green */
+  --green2:#22c55e;
+
+  --radius: 22px;
+
+  /* Soft shadows (Light) */
+  --shadowA: 14px 14px 30px rgba(15,23,42,.10);
+  --shadowB: -14px -14px 30px rgba(255,255,255,.95);
+
+  --shadowInsetA: inset 10px 10px 20px rgba(15,23,42,.06);
+  --shadowInsetB: inset -10px -10px 20px rgba(255,255,255,.95);
+
+  /* Pills */
+  --chip: rgba(165,0,52,.10);
+  --chipStroke: rgba(165,0,52,.25);
+}
+
+/* Base */
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Arial;
+  background:
+    radial-gradient(1200px 700px at 20% 10%, rgba(52,211,153,.16), transparent 55%),
+    radial-gradient(900px 600px at 90% 15%, rgba(165,0,52,.10), transparent 55%),
+    radial-gradient(900px 500px at 50% 95%, rgba(59,130,246,.10), transparent 60%),
+    linear-gradient(180deg, var(--bg), var(--bg2));
+  color: var(--text);
+}
+
+a{ color: var(--lgRed); }
+.wrap{ max-width:1200px; margin:0 auto; padding:16px; }
+
+/* Header */
+header{
+  position: sticky;
+  top:0;
+  z-index:50;
+  background: rgba(255,255,255,.62);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(15,23,42,.08);
+}
+
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.title{
+  font-size:18px;
+  font-weight: 950;
+  letter-spacing:.2px;
+}
+.subtitle{
+  font-size:12px;
+  color: var(--muted);
+  margin-top:4px;
+}
+
+.nav{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:10px;
+}
+
+.nav a{
+  text-decoration:none;
+  color: var(--text);
+  padding:9px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(15,23,42,.10);
+  background: rgba(255,255,255,.55);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadowA), var(--shadowB);
+  font-weight: 850;
+}
+
+.nav a.active{
+  border: 1px solid rgba(165,0,52,.35);
+  background: rgba(165,0,52,.10);
+  color: #7a0026;
+}
+
+/* Layout */
+.layout{ display:block; }
+@media (min-width: 900px){
+  .layout{
+    display:grid;
+    grid-template-columns: 1fr 380px;
+    gap: 16px;
+    align-items:start;
+  }
+}
+
+/* Sections */
+.section{ margin: 18px 0; }
+.section h2{
+  margin: 0 0 10px;
+  font-size: 15px;
+  font-weight: 950;
+  opacity:.95;
+}
+
+.grid{
+  display:grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+/* Cards (GLASS EFFECT) */
+.card{
+  border-radius: var(--radius);
+  border: 1px solid rgba(15,23,42,.10);
+  background: linear-gradient(145deg, rgba(255,255,255,.72), rgba(255,255,255,.45));
+  backdrop-filter: blur(14px);
+  box-shadow: var(--shadowA), var(--shadowB);
+  overflow:hidden;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.card:hover{
+  transform: translateY(-3px);
+}
+
+.cardMedia{
+  position: relative;
+  background: rgba(255,255,255,.35);
+  border-bottom: 1px solid rgba(15,23,42,.08);
+}
+
+.card img{
+  width:100%;
+  height: 175px;
+  object-fit: cover;
+  display:block;
+  background: rgba(255,255,255,.25);
+}
+
+.p{ padding: 12px; }
+
+.lineTag{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  border: 1px solid var(--chipStroke);
+  background: var(--chip);
+  color: #7a0026;
+  font-weight: 900;
+}
+
+.name{
+  font-weight: 950;
+  margin: 8px 0 8px;
+  line-height:1.35;
+}
+
+.metaRow{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-bottom:10px;
+}
+
+.metaPill{
+  padding:6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(15,23,42,.12);
+  background: rgba(255,255,255,.45);
+  font-size:12px;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+ul{
+  margin: 0 0 10px;
+  padding: 0 18px;
+  color: rgba(15,23,42,.70);
+  line-height:1.7;
+}
+
+/* Dimensions */
+.dimsBox{
+  margin-top:10px;
+  border-top:1px dashed rgba(15,23,42,.18);
+  padding-top:10px;
+  font-size:12px;
+  color: var(--muted);
+  line-height:1.9;
+}
+.dimsTitle{
+  font-weight: 950;
+  color: rgba(15,23,42,.85);
+  margin-bottom:4px;
+}
+
+/* Buttons */
+.btn{
+  cursor:pointer;
+  border: 1px solid rgba(15,23,42,.12);
+  border-radius: 16px;
+  padding: 10px 12px;
+  font-weight: 950;
+  color: var(--text);
+  background: rgba(255,255,255,.55);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadowA), var(--shadowB);
+}
+.btn:active{ transform: translateY(1px); }
+
+.btnAdd{
+  width:100%;
+  border: 1px solid rgba(52,211,153,.40);
+  background: linear-gradient(145deg, rgba(52,211,153,.28), rgba(52,211,153,.10));
+  color: #064e3b;
+}
+
+.btnPrimary{
+  width:100%;
+  border: 1px solid rgba(34,197,94,.50);
+  background: linear-gradient(145deg, rgba(52,211,153,.95), rgba(34,197,94,.60));
+  color: #053321;
+  box-shadow: 0 18px 30px rgba(34,197,94,.18);
+}
+
+.btnGhost{
+  background: rgba(255,255,255,.45);
+  border: 1px solid rgba(15,23,42,.12);
+}
+
+/* Inputs */
+input{
+  width:100%;
+  padding: 11px 12px;
+  border-radius: 16px;
+  color: var(--text);
+  border: 1px solid rgba(15,23,42,.12);
+  background: rgba(255,255,255,.55);
+  box-shadow: var(--shadowInsetA), var(--shadowInsetB);
+  outline: none;
+}
+
+/* Cart */
+.cartBar{
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  padding: 12px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(15,23,42,.12);
+  background: rgba(255,255,255,.62);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadowA), var(--shadowB);
+  z-index: 999;
+}
+
+@media (min-width: 900px){
+  .cartBar{
+    position: sticky;
+    top: 124px;
+    left:auto; right:auto; bottom:auto;
+  }
+}
+
+.cartHeader{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+.cartTitle{ font-weight: 950; }
+.small{ font-size:12px; color: var(--muted); }
+
+.cartItems{
+  margin-top: 10px;
+  max-height: 190px;
+  overflow:auto;
+  border-top: 1px dashed rgba(15,23,42,.18);
+  padding-top: 10px;
+}
+
+.cartItem{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:10px;
+  padding: 10px 0;
+  border-bottom: 1px dashed rgba(15,23,42,.18);
+}
+.cartItem:last-child{ border-bottom:0; }
+
+.row{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:10px;
+}
+.row > * { flex: 1; min-width: 220px; }
+
+.spacer{ height: 270px; }
+@media (min-width:900px){ .spacer{ height: 18px; } }
+
+/* ✅ Floating WhatsApp Button */
+.fabWhats{
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  width: 58px;
+  height: 58px;
+  border-radius: 999px;
+  border: 1px solid rgba(34,197,94,.35);
+  background: linear-gradient(145deg, rgba(52,211,153,.98), rgba(34,197,94,.70));
+  box-shadow: 0 18px 35px rgba(34,197,94,.22), var(--shadowA), var(--shadowB);
+  cursor: pointer;
+  z-index: 1200;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.fabWhats:active{ transform: translateY(1px); }
+
+.fabWhats span{
+  font-weight: 1000;
+  color:#053321;
+  font-size: 13px;
+  letter-spacing:.2px;
+}
+
+/* Small screens: keep it above the cart bar */
+@media (max-width: 899px){
+  .fabWhats{ bottom: 92px; }
+}

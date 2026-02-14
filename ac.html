@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>تكييفات LG</title>
+  <link rel="stylesheet" href="soft-ui.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="topbar">
+      <div>
+        <div class="title">تكييفات LG</div>
+        <div class="subtitle">اختر الموديلات → أضف للسلة → أرسل واتساب</div>
+
+        <div class="nav">
+          <a href="index.html">الرئيسية</a>
+          <a class="active" href="ac.html">تكييفات</a>
+          <a href="washers.html">غسالات</a>
+          <a href="fridges.html">ثلاجات</a>
+          <a href="builtin.html">Built-in</a>
+          <a href="view.html">عرض العميل</a>
+        </div>
+      </div>
+
+      <button class="btn btnGhost" id="btnClear">مسح السلة</button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap layout">
+  <main id="content"></main>
+
+  <aside class="cartBar">
+    <div class="cartHeader">
+      <div>
+        <div class="cartTitle">السلة</div>
+        <div class="small" id="cartCount">0 موديل</div>
+      </div>
+      <button class="btn btnGhost" id="btnToggle">إظهار/إخفاء</button>
+    </div>
+
+    <div id="cartBody">
+      <div class="cartItems" id="cartItems">
+        <div class="small">لسه مفيش اختيارات.</div>
+      </div>
+
+      <!-- رقم العميل -->
+      <div class="row">
+        <div style="width:100%">
+          <div class="small" style="margin:8px 0 6px;">
+            رقم واتساب العميل
+          </div>
+          <input id="phone" placeholder="2010xxxxxxx"/>
+        </div>
+      </div>
+
+      <!-- اسم الموظف -->
+      <div class="row">
+        <div style="width:100%">
+          <div class="small" style="margin:8px 0 6px;">
+            اسم الموظف
+          </div>
+          <input id="employee" placeholder="اكتب اسمك"/>
+        </div>
+      </div>
+
+      <div class="row">
+        <button class="btn btnGhost" id="btnLink">إنشاء لينك</button>
+        <button class="btn btnPrimary" id="btnWhats">إرسال واتساب</button>
+      </div>
+
+      <div class="small" style="margin-top:10px;">
+        لينك العميل:
+        <span id="linkOut">—</span>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<div class="wrap spacer"></div>
+
+<script src="products.js"></script>
+
+<script>
+
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbztaAJhbUhjC9o4ZDSwatwdjXPKsTeA4yEQkDTDVjPXQ2aB24KlABNZFYiLOd2D8E5J/exec";
+const CART_KEY = "lg_cart_v1";
+
+function loadCart(){
+  return JSON.parse(localStorage.getItem(CART_KEY) || "[]");
+}
+
+function saveCart(data){
+  localStorage.setItem(CART_KEY, JSON.stringify(data));
+}
+
+const ALL = window.PRODUCTS || [];
+const contentEl = document.getElementById("content");
+const cartItemsEl = document.getElementById("cartItems");
+const cartCountEl = document.getElementById("cartCount");
+const linkOutEl = document.getElementById("linkOut");
+const phoneInput = document.getElementById("phone");
+const employeeInput = document.getElementById("employee");
+
+let cart = loadCart();
+let cartVisible = true;
+
+/* عرض التكييفات */
+function renderProducts(){
+  contentEl.innerHTML = "";
+  const items = ALL.filter(p => p.section === "ac");
+
+  const grid = document.createElement("div");
+  grid.className = "grid";
+
+  items.forEach(p => {
+    const card = document.createElement("div");
+    card.className = "card";
+
+    card.innerHTML = `
+      <div class="cardMedia">
+        <img src="${p.img || ""}" alt="">
+      </div>
+      <div class="p">
+        <div class="name">${p.name}</div>
+        <ul>
+          ${(p.features || []).slice(0,5).map(f => `<li>${f}</li>`).join("")}
+        </ul>
+        <button class="btn btnAdd">أضف للسلة</button>
+      </div>
+    `;
+
+    card.querySelector(".btnAdd").onclick = () => addToCart(p.id);
+    grid.appendChild(card);
+  });
+
+  contentEl.appendChild(grid);
+}
+
+/* السلة */
+function addToCart(id){
+  if(!cart.includes(id)){
+    cart.push(id);
+    saveCart(cart);
+    renderCart();
+  }
+}
+
+function removeFromCart(id){
+  cart = cart.filter(x => x !== id);
+  saveCart(cart);
+  renderCart();
+}
+window.removeFromCart = removeFromCart;
+
+function renderCart(){
+  const items = cart.map(id => ALL.find(p => p.id === id)).filter(Boolean);
+  cartCountEl.textContent = items.length + " موديل";
+
+  if(items.length === 0){
+    cartItemsEl.innerHTML = "<div class='small'>لسه مفيش اختيارات.</div>";
+    return;
+  }
+
+  cartItemsEl.innerHTML = items.map(p => `
+    <div class="cartItem">
+      <div>${p.name}</div>
+      <button class="btn btnGhost" onclick="removeFromCart('${p.id}')">حذف</button>
+    </div>
+  `).join("");
+}
+
+/* إنشاء لينك */
+function buildLink(){
+  const items = cart.map(id => ALL.find(p => p.id === id)).filter(Boolean);
+  if(items.length === 0) return "";
+
+  const encoded = encodeURIComponent(
+    btoa(unescape(encodeURIComponent(JSON.stringify(items))))
+  );
+
+  const base = location.href.replace("ac.html", "");
+  return base + "view.html?c=" + encoded;
+}
+
+document.getElementById("btnLink").onclick = () => {
+  const link = buildLink();
+  linkOutEl.innerHTML = link ? `<a href="${link}" target="_blank">فتح</a>` : "—";
+};
+
+document.getElementById("btnWhats").onclick = () => {
+
+  const phone = phoneInput.value.trim();
+  const employee = employeeInput.value.trim();
+
+  if(!phone) return alert("اكتب رقم العميل");
+  if(!employee) return alert("اكتب اسم الموظف");
+
+  const link = buildLink();
+  if(!link) return alert("السلة فاضية");
+
+  const items = cart.map(id => ALL.find(p => p.id === id)).filter(Boolean);
+  const list = items.map((p,i)=>`${i+1}) ${p.name}`).join("\n");
+
+  const msg = `
+أهلاً بحضرتك 🌟
+دي الموديلات المختارة:
+${list}
+
+تفاصيل كاملة:
+${link}
+
+تم الإرسال بواسطة: ${employee}
+`.trim();
+
+  /* فتح واتساب */
+  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, "_blank");
+
+  /* تسجيل في Google Sheet */
+  fetch(GOOGLE_SCRIPT_URL, {
+    method: "POST",
+    body: JSON.stringify({
+      employee: employee,
+      clientPhone: phone,
+      products: list,
+      link: link,
+      date: new Date().toLocaleString()
+    })
+  });
+
+};
+
+document.getElementById("btnClear").onclick = () => {
+  cart = [];
+  saveCart(cart);
+  renderCart();
+};
+
+document.getElementById("btnToggle").onclick = () => {
+  cartVisible = !cartVisible;
+  document.getElementById("cartBody").style.display =
+    cartVisible ? "block" : "none";
+};
+
+window.addEventListener("storage", () => {
+  cart = loadCart();
+  renderCart();
+});
+
+renderProducts();
+renderCart();
+
+</script>
+
+</body>
+</html>
