@@ -711,7 +711,7 @@ window.PRODUCTS = [
   section:"fridge",
   name:"GTF522PVAN",
   img:"images/fridges/GTF522PVAN.jpg",
-  features:["Smart Inverter Compressor","Multi Air Flow","No Frost"],
+  features:["Inverter Compressor","Multi Air Flow","No Frost"],
   dims:{w:"760",d:"750",h:"1860"}
 },
 {
@@ -719,7 +719,7 @@ window.PRODUCTS = [
   section:"fridge",
   name:"GTF522PSAN",
   img:"images/fridges/GTF522PSAN.jpg",
-  features:["Smart Inverter Compressor","Multi Air Flow","No Frost"],
+  features:["Inverter Compressor","Multi Air Flow","No Frost"],
   dims:{w:"760",d:"750",h:"1860"}
 },
 {
@@ -727,7 +727,7 @@ window.PRODUCTS = [
   section:"fridge",
   name:"GTF452SVAN",
   img:"images/fridges/GTF452SVAN.jpg",
-  features:["Smart Inverter Compressor","Multi Air Flow","No Frost"],
+  features:["Inverter Compressor","Multi Air Flow","No Frost"],
   dims:{w:"700",d:"720",h:"1870"}
 },
 {
@@ -735,7 +735,7 @@ window.PRODUCTS = [
   section:"fridge",
   name:"GTF452SSAN",
   img:"images/fridges/GTF452SSAN.jpg",
-  features:["Smart Inverter Compressor","Multi Air Flow","No Frost"],
+  features:["Inverter Compressor","Multi Air Flow","No Frost"],
   dims:{w:"700",d:"720",h:"1870"}
 },
 {
@@ -1055,4 +1055,5 @@ window.PRODUCTS = [
     "صناعة صينية"
   ]
 }
+
 ];
