@@ -220,6 +220,7 @@ ${link}
   window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, "_blank");
 
   /* تسجيل في Google Sheet */
+  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbztaAJhbUhjC9o4ZDSwatwdjXPKsTeA4yEQkDTDVjPXQ2aB24KlABNZFYiLOd2D8E5J/exec";
   fetch(GOOGLE_SCRIPT_URL, {
     method: "POST",
     body: JSON.stringify({
@@ -256,4 +257,5 @@ renderCart();
 </script>
 
 </body>
+
 </html>
