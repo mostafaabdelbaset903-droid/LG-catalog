@@ -6,80 +6,75 @@
 <title>غسالات LG</title>
 <link rel="stylesheet" href="soft-ui.css">
 </head>
+
 <body>
 
 <header>
-  <div class="wrap">
-    <div class="topbar">
-      <div>
-        <div class="title">غسالات / مجففات LG</div>
-        <div class="subtitle">اختر الموديلات → أضف للسلة → أرسل واتساب</div>
+<div class="wrap">
+<div class="topbar">
+<div>
+<div class="title">غسالات / مجففات LG</div>
+<div class="subtitle">اختر الموديلات → أضف للسلة → أرسل واتساب</div>
 
-        <div class="nav">
-          <a href="index.html">الرئيسية</a>
-          <a href="ac.html">تكييفات</a>
-          <a class="active" href="washers.html">غسالات</a>
-          <a href="fridges.html">ثلاجات</a>
-          <a href="builtin.html">Built-in</a>
-          <a href="view.html">عرض العميل</a>
-        </div>
-      </div>
+<div class="nav">
+<a href="index.html">الرئيسية</a>
+<a href="ac.html">تكييفات</a>
+<a class="active" href="washers.html">غسالات</a>
+<a href="fridges.html">ثلاجات</a>
+<a href="builtin.html">Built-in</a>
+<a href="view.html">عرض العميل</a>
+</div>
+</div>
 
-      <button class="btn btnGhost" id="btnClear">مسح السلة</button>
-    </div>
-  </div>
+<button class="btn btnGhost" id="btnClear">مسح السلة</button>
+</div>
+</div>
 </header>
 
 <div class="wrap layout">
-  <main id="content"></main>
+<main id="content"></main>
 
-  <aside class="cartBar">
-    <div class="cartHeader">
-      <div>
-        <div class="cartTitle">السلة</div>
-        <div class="small" id="cartCount">0 موديل</div>
-      </div>
-      <button class="btn btnGhost" id="btnToggle">إظهار/إخفاء</button>
-    </div>
+<aside class="cartBar">
+<div class="cartHeader">
+<div>
+<div class="cartTitle">السلة</div>
+<div class="small" id="cartCount">0 موديل</div>
+</div>
+<button class="btn btnGhost" id="btnToggle">إظهار/إخفاء</button>
+</div>
 
-    <div id="cartBody">
+<div id="cartBody">
 
-      <div class="cartItems" id="cartItems">
-        <div class="small">لسه مفيش اختيارات.</div>
-      </div>
+<div class="cartItems" id="cartItems">
+<div class="small">لسه مفيش اختيارات.</div>
+</div>
 
-      <!-- رقم العميل -->
-      <div class="row">
-        <div style="width:100%">
-          <div class="small" style="margin:8px 0 6px;">
-            رقم واتساب العميل
-          </div>
-          <input id="phone" placeholder="2010xxxxxxx"/>
-        </div>
-      </div>
+<div class="row">
+<div style="width:100%">
+<div class="small" style="margin:8px 0 6px;">رقم واتساب العميل</div>
+<input id="phone" placeholder="2010xxxxxxx"/>
+</div>
+</div>
 
-      <!-- اسم الموظف -->
-      <div class="row">
-        <div style="width:100%">
-          <div class="small" style="margin:8px 0 6px;">
-            اسم الموظف
-          </div>
-          <input id="employee" placeholder="اكتب اسمك"/>
-        </div>
-      </div>
+<div class="row">
+<div style="width:100%">
+<div class="small" style="margin:8px 0 6px;">اسم الموظف</div>
+<input id="employee" placeholder="اكتب اسمك"/>
+</div>
+</div>
 
-      <div class="row">
-        <button class="btn btnGhost" id="btnLink">إنشاء لينك</button>
-        <button class="btn btnPrimary" id="btnWhats">إرسال واتساب</button>
-      </div>
+<div class="row">
+<button class="btn btnGhost" id="btnLink">إنشاء لينك</button>
+<button class="btn btnPrimary" id="btnWhats">إرسال واتساب</button>
+</div>
 
-      <div class="small" style="margin-top:10px;">
-        لينك العميل:
-        <span id="linkOut">—</span>
-      </div>
+<div class="small" style="margin-top:10px;">
+لينك العميل:
+<span id="linkOut">—</span>
+</div>
 
-    </div>
-  </aside>
+</div>
+</aside>
 </div>
 
 <div class="wrap spacer"></div>
@@ -88,15 +83,15 @@
 
 <script>
 
-const CART_KEY = "lg_cart_v1";
 const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwgSdcyBHLtT-8VNJGEm1EP8lej3iZBFNN58d8qatSlEaPgOKCr2xBPeA2X6oB9-Iez/exec";
+const CART_KEY = "lg_cart_v1";
 
 function loadCart(){
-  return JSON.parse(localStorage.getItem(CART_KEY) || "[]");
+return JSON.parse(localStorage.getItem(CART_KEY) || "[]");
 }
 
 function saveCart(data){
-  localStorage.setItem(CART_KEY, JSON.stringify(data));
+localStorage.setItem(CART_KEY, JSON.stringify(data));
 }
 
 const ALL = window.PRODUCTS || [];
@@ -110,120 +105,112 @@ const employeeInput = document.getElementById("employee");
 let cart = loadCart();
 let cartVisible = true;
 
-/* عرض منتجات الغسالات */
 function renderProducts(){
+contentEl.innerHTML = "";
+const items = ALL.filter(p => p.section === "washer");
 
-  contentEl.innerHTML = "";
-  const items = ALL.filter(p => p.section === "washer");
-
-  if(items.length === 0){
-    contentEl.innerHTML = "<div class='small'>لا توجد منتجات</div>";
-    return;
-  }
-
-  const grid = document.createElement("div");
-  grid.className = "grid";
-
-  items.forEach(p=>{
-    const card = document.createElement("div");
-    card.className="card";
-
-    card.innerHTML=`
-      <div class="cardMedia">
-        <img src="${p.img || ""}" alt="">
-      </div>
-      <div class="p">
-        <div class="name">${p.name || p.model || "—"}</div>
-        <ul>
-          ${(p.features||[]).slice(0,5).map(f=>`<li>${f}</li>`).join("")}
-        </ul>
-        ${
-          p.dims ? `
-          <div class="dimsBox">
-            <div>${p.dims.w} × ${p.dims.d} × ${p.dims.h}</div>
-          </div>
-          ` : ""
-        }
-        <button class="btn btnAdd">أضف للسلة</button>
-      </div>
-    `;
-
-    card.querySelector(".btnAdd").onclick=()=>addToCart(p.id);
-    grid.appendChild(card);
-  });
-
-  contentEl.appendChild(grid);
+if(items.length === 0){
+contentEl.innerHTML = "<div class='small'>لا توجد منتجات</div>";
+return;
 }
 
-/* السلة */
+const grid = document.createElement("div");
+grid.className = "grid";
+
+items.forEach(p=>{
+const card = document.createElement("div");
+card.className="card";
+
+card.innerHTML=`
+<div class="cardMedia">
+<img src="${p.img || ""}" alt="">
+</div>
+<div class="p">
+<div class="name">${p.name || p.model || "—"}</div>
+<ul>
+${(p.features||[]).slice(0,5).map(f=>`<li>${f}</li>`).join("")}
+</ul>
+${p.dims ? `
+<div class="dimsBox">
+<div>${p.dims.w} × ${p.dims.d} × ${p.dims.h}</div>
+</div>
+` : ""}
+<button class="btn btnAdd">أضف للسلة</button>
+</div>
+`;
+
+card.querySelector(".btnAdd").onclick=()=>addToCart(p.id);
+grid.appendChild(card);
+});
+
+contentEl.appendChild(grid);
+}
+
 function addToCart(id){
-  if(!cart.includes(id)){
-    cart.push(id);
-    saveCart(cart);
-    renderCart();
-  }
+if(!cart.includes(id)){
+cart.push(id);
+saveCart(cart);
+renderCart();
+}
 }
 
 function removeFromCart(id){
-  cart = cart.filter(x=>x!==id);
-  saveCart(cart);
-  renderCart();
+cart = cart.filter(x=>x!==id);
+saveCart(cart);
+renderCart();
 }
 window.removeFromCart = removeFromCart;
 
 function renderCart(){
+const items = cart.map(id=>ALL.find(p=>p.id===id)).filter(Boolean);
+cartCountEl.textContent = items.length + " موديل";
 
-  const items = cart.map(id=>ALL.find(p=>p.id===id)).filter(Boolean);
-  cartCountEl.textContent = items.length + " موديل";
-
-  if(items.length===0){
-    cartItemsEl.innerHTML="<div class='small'>لسه مفيش اختيارات.</div>";
-    return;
-  }
-
-  cartItemsEl.innerHTML = items.map(p=>`
-    <div class="cartItem">
-      <div>${p.name || p.model || p.id}</div>
-      <button class="btn btnGhost"
-        onclick="removeFromCart('${p.id}')">حذف</button>
-    </div>
-  `).join("");
+if(items.length===0){
+cartItemsEl.innerHTML="<div class='small'>لسه مفيش اختيارات.</div>";
+return;
 }
 
-/* إنشاء لينك */
+cartItemsEl.innerHTML = items.map(p=>`
+<div class="cartItem">
+<div>${p.name || p.model || p.id}</div>
+<button class="btn btnGhost"
+onclick="removeFromCart('${p.id}')">حذف</button>
+</div>
+`).join("");
+}
+
 function buildLink(){
+const items = cart.map(id=>ALL.find(p=>p.id===id)).filter(Boolean);
+if(items.length===0) return "";
 
-  const items = cart.map(id=>ALL.find(p=>p.id===id)).filter(Boolean);
-  if(items.length===0) return "";
+const encoded = encodeURIComponent(
+btoa(unescape(encodeURIComponent(JSON.stringify(items))))
+);
 
-  const encoded = encodeURIComponent(
-    btoa(unescape(encodeURIComponent(JSON.stringify(items))))
-  );
-
-  const base = location.href.replace("washers.html","");
-  return base + "view.html?c=" + encoded;
+const base = location.origin + location.pathname.replace("washers.html","");
+return base + "view.html?c=" + encoded;
 }
 
 document.getElementById("btnLink").onclick=()=>{
-  const link = buildLink();
-  linkOutEl.innerHTML = link ? `<a href="${link}" target="_blank">فتح</a>` : "—";
+const link = buildLink();
+linkOutEl.innerHTML = link ? `<a href="${link}" target="_blank">فتح</a>` : "—";
 };
 
 document.getElementById("btnWhats").onclick=()=>{
 
-  const phone = phoneInput.value.trim();
-  const employee = employeeInput.value.trim();
+const phone = phoneInput.value.trim();
+const employee = employeeInput.value.trim();
 
-  if(!phone) return alert("اكتب رقم العميل");
-  if(!employee) return alert("اكتب اسم الموظف");
+if(!phone) return alert("اكتب رقم العميل");
+if(!employee) return alert("اكتب اسم الموظف");
 
-  const link = buildLink();
-  if(!link) return alert("السلة فاضية");
+const link = buildLink();
+if(!link) return alert("السلة فاضية");
 
-  const items = cart.map(id=>ALL.find(p=>p.id===id)).filter(Boolean);
-  const list = items.map((p,i)=>`${i+1}) ${p.name || p.model || p.id}`).join("\n");
+const items = cart.map(id=>ALL.find(p=>p.id===id)).filter(Boolean);
+const list = items.map((p,i)=>`${i+1}) ${p.name || p.model || p.id}`).join("\n");
 
-  const msg = `
+const msg = `
 أهلاً بحضرتك 🌟
 دي الموديلات المختارة:
 ${list}
@@ -234,44 +221,42 @@ ${link}
 تم الإرسال بواسطة: ${employee}
 `.trim();
 
-  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`,"_blank");
+window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`,"_blank");
 
-  fetch(GOOGLE_SCRIPT_URL,{
-    method:"POST",
-    body:JSON.stringify({
-      employee:employee,
-      clientPhone:phone,
-      products:list,
-      link:link,
-      date:new Date().toLocaleString()
-    })
-  });
+fetch(GOOGLE_SCRIPT_URL,{
+method:"POST",
+body:JSON.stringify({
+employee:employee,
+clientPhone:phone,
+products:list,
+link:link,
+date:new Date().toLocaleString()
+})
+});
 
 };
 
 document.getElementById("btnClear").onclick=()=>{
-  cart=[];
-  saveCart(cart);
-  renderCart();
+cart=[];
+saveCart(cart);
+renderCart();
 };
 
 document.getElementById("btnToggle").onclick=()=>{
-  cartVisible=!cartVisible;
-  document.getElementById("cartBody").style.display=
-    cartVisible?"block":"none";
+cartVisible=!cartVisible;
+document.getElementById("cartBody").style.display=
+cartVisible?"block":"none";
 };
 
 window.addEventListener("storage",()=>{
-  cart=loadCart();
-  renderCart();
+cart=loadCart();
+renderCart();
 });
 
 renderProducts();
 renderCart();
 
 </script>
+
 </body>
-
 </html>
-
-
