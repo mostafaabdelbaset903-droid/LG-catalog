@@ -354,7 +354,7 @@ window.PRODUCTS = [
   id: "wt_FWT1310BGP",
   section: "washer",
   line: "WashTower",
-  name: "LG WashTower 13/10 كجم",
+  name: "LG WashTower FWT1310BGP 13/10 كجم",
   model: "FWT1310BGP",
   img: "images/FWT1310BGP.jpg",
   features: [
@@ -368,7 +368,7 @@ window.PRODUCTS = [
   id: "wt_FWT2116BS",
   section: "washer",
   line: "WashTower",
-  name: "LG WashTower 21/16 كجم (أسود)",
+  name: "LG WashTower FWT2116BS 21/16 كجم (أسود)",
   model: "FWT2116BS",
   img: "images/FWT2116BS.jpg",
   features: [
@@ -382,7 +382,7 @@ window.PRODUCTS = [
   id: "wt_FWT2116SS",
   section: "washer",
   line: "WashTower",
-  name: "LG WashTower 21/16 كجم (فضي)",
+  name: "LG WashTower FWT2116SS 21/16 كجم (فضي)",
   model: "FWT2116SS",
   img: "images/FWT2116SS.jpg",
   features: [
@@ -398,7 +398,7 @@ window.PRODUCTS = [
   id: "dry_RH80T2SP7RM",
   section: "washer",
   line: "Dryers",
-  name: "مجفف Heat Pump سعة 8 كجم",
+  name: "مجفف Heat Pump RH80T2SP7RM سعة 8 كجم",
   model: "RH80T2SP7RM",
   img: "images/RH80T2SP7RM.jpg",
   features: [
@@ -412,7 +412,7 @@ window.PRODUCTS = [
   id: "dry_RH10V9JV2W",
   section: "washer",
   line: "Dryers",
-  name: "مجفف 10.1 كجم (أسود)",
+  name: "مجفف 10.1 كجم RH10V9JV2W (أسود)",
   model: "RH10V9JV2W",
   img: "images/RH10V9JV2W.jpg",
   features: [
@@ -426,7 +426,7 @@ window.PRODUCTS = [
   id: "dry_RH10V9PV2W",
   section: "washer",
   line: "Dryers",
-  name: "مجفف 10.1 كجم (فضي)",
+  name: "مجفف 10.1 كجم RH10V9PV2W (فضي)",
   model: "RH10V9PV2W",
   img: "images/RH10V9PV2W.jpg",
   features: [
@@ -442,7 +442,7 @@ window.PRODUCTS = [
   id: "tl_T23H9EFHST",
   section: "washer",
   line: "Top Load",
-  name: "غسالة تحميل علوي 23 كجم (AI DD + TurboWash)",
+  name: "T23H9EFHST غسالة تحميل علوي 23 كجم (AI DD + TurboWash)",
   model: "T23H9EFHST",
   img: "images/T23H9EFHST.jpg",
   features: [
@@ -456,7 +456,7 @@ window.PRODUCTS = [
   id: "tl_T23X5EHHSTX",
   section: "washer",
   line: "Top Load",
-  name: "غسالة تحميل علوي 23 كجم (AI DD + ThinQ)",
+  name: "T23X5EHHSTX غسالة تحميل علوي 23 كجم (AI DD + ThinQ)",
   model: "T23X5EHHSTX",
   img: "images/T23X5EHHSTX.jpg",
   features: [
@@ -470,7 +470,7 @@ window.PRODUCTS = [
   id: "tl_T1164NEHGB",
   section: "washer",
   line: "Top Load",
-  name: "غسالة تحميل علوي 11 كجم (محول ذكي)",
+  name: "T1164NEHGB غسالة تحميل علوي 11 كجم (محول ذكي)",
   model: "T1164NEHGB",
   img: "images/T1164NEHGB.jpg",
   features: [
@@ -484,7 +484,7 @@ window.PRODUCTS = [
   id: "tl_T1388NEHGB",
   section: "washer",
   line: "Top Load",
-  name: "غسالة تحميل علوي 13 كجم (TurboDrum + LoDecibel)",
+  name: "T1388NEHGB غسالة تحميل علوي 13 كجم (TurboDrum + LoDecibel)",
   model: "T1388NEHGB",
   img: "images/T1388NEHGB.jpg",
   features: [
@@ -1057,3 +1057,4 @@ window.PRODUCTS = [
 }
 
 ];
+
