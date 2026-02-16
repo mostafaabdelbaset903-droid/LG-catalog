@@ -82,9 +82,10 @@
 
 <script>
 
-/* 🔥 لينك Google Script */
+/* ===== Google Sheet Web App ===== */
 const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwgSdcyBHLtT-8VNJGEm1EP8lej3iZBFNN58d8qatSlEaPgOKCr2xBPeA2X6oB9-Iez/exec";
 
+/* ===== سلة موحدة لكل الموقع ===== */
 const CART_KEY = "lg_cart_v1";
 
 function loadCart(){
@@ -106,7 +107,7 @@ const employeeInput = document.getElementById("employee");
 let cart = loadCart();
 let cartVisible = true;
 
-/* عرض الثلاجات */
+/* ===== عرض الثلاجات ===== */
 function renderProducts(){
 
 contentEl.innerHTML = "";
@@ -136,8 +137,7 @@ ${(p.features||[]).slice(0,5).map(f=>`<li>${f}</li>`).join("")}
 ${p.dims ? `
 <div class="dimsBox">
 <div>${p.dims.w} × ${p.dims.d} × ${p.dims.h}</div>
-</div>
-` : ""}
+</div>` : ""}
 <button class="btn btnAdd">أضف للسلة</button>
 </div>
 `;
@@ -149,7 +149,7 @@ grid.appendChild(card);
 contentEl.appendChild(grid);
 }
 
-/* السلة */
+/* ===== السلة ===== */
 function addToCart(id){
 if(!cart.includes(id)){
 cart.push(id);
@@ -178,13 +178,12 @@ return;
 cartItemsEl.innerHTML = items.map(p=>`
 <div class="cartItem">
 <div>${p.name || p.model || p.id}</div>
-<button class="btn btnGhost"
-onclick="removeFromCart('${p.id}')">حذف</button>
+<button class="btn btnGhost" onclick="removeFromCart('${p.id}')">حذف</button>
 </div>
 `).join("");
 }
 
-/* إنشاء لينك ثابت وصحيح */
+/* ===== إنشاء لينك ثابت صحيح ===== */
 function buildLink(){
 
 const items = cart.map(id=>ALL.find(p=>p.id===id)).filter(Boolean);
@@ -194,7 +193,6 @@ const encoded = encodeURIComponent(
 btoa(unescape(encodeURIComponent(JSON.stringify(items))))
 );
 
-/* 🔥 ده الحل النهائي الصحيح */
 const base = location.origin + location.pathname.replace("fridges.html","");
 return base + "view.html?c=" + encoded;
 }
@@ -229,11 +227,13 @@ ${link}
 تم الإرسال بواسطة: ${employee}
 `.trim();
 
+/* فتح واتساب */
 window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`,"_blank");
 
 /* تسجيل في Google Sheet */
 fetch(GOOGLE_SCRIPT_URL,{
 method:"POST",
+headers:{"Content-Type":"application/json"},
 body:JSON.stringify({
 employee:employee,
 clientPhone:phone,
