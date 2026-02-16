@@ -5,6 +5,90 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>تكييفات LG</title>
 <link rel="stylesheet" href="soft-ui.css">
+
+<style>
+
+/* ===== Hero Section ===== */
+.heroAC{
+  margin:20px 0 25px;
+  padding:35px 25px;
+  border-radius:28px;
+  background: linear-gradient(135deg,#ffffff,#f0f4ff);
+  border:1px solid rgba(15,23,42,.08);
+  box-shadow:0 25px 60px rgba(15,23,42,.08);
+  position:relative;
+  overflow:hidden;
+}
+
+.heroAC::after{
+  content:"";
+  position:absolute;
+  width:320px;
+  height:320px;
+  background:radial-gradient(circle,#a5003420,transparent 70%);
+  left:-120px;
+  top:-120px;
+}
+
+.heroAC h1{
+  margin:0;
+  font-size:26px;
+  font-weight:1000;
+}
+
+.heroAC p{
+  margin:8px 0 0;
+  font-size:14px;
+  opacity:.7;
+}
+
+/* ===== Card Animation ===== */
+.card{
+  animation:fadeUp .6s ease both;
+}
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(18px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* Hover Upgrade */
+.card:hover{
+  transform:translateY(-6px) scale(1.02);
+  box-shadow:0 25px 50px rgba(0,0,0,.08);
+}
+
+/* Line Tag */
+.lineTag{
+  display:inline-block;
+  margin-bottom:8px;
+  padding:5px 10px;
+  font-size:12px;
+  font-weight:900;
+  border-radius:999px;
+  background:#a5003410;
+  color:#a50034;
+}
+
+/* Add Button Upgrade */
+.btnAdd{
+  transition:all .25s ease;
+  font-size:13px;
+}
+
+.btnAdd:hover{
+  transform:scale(1.04);
+  box-shadow:0 12px 30px rgba(52,211,153,.3);
+}
+
+</style>
+
 </head>
 <body>
 
@@ -29,6 +113,16 @@
 </div>
 </div>
 </header>
+
+<div class="wrap">
+
+<!-- ===== Hero Section ===== -->
+<div class="heroAC">
+<h1>اختار أفضل تكييف لمساحتك ❄️</h1>
+<p>تقنيات تبريد متطورة — كفاءة طاقة — ضمان يصل لـ 10 سنوات</p>
+</div>
+
+</div>
 
 <div class="wrap layout">
 <main id="content"></main>
@@ -80,6 +174,8 @@
 
 <script>
 
+/* ===== نفس كودك بدون أي تعديل منطقي ===== */
+
 const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwgSdcyBHLtT-8VNJGEm1EP8lej3iZBFNN58d8qatSlEaPgOKCr2xBPeA2X6oB9-Iez/exec";
 const CART_KEY = "lg_cart_v1";
 
@@ -118,6 +214,7 @@ card.innerHTML=`
 <img src="${p.img || ""}" alt="">
 </div>
 <div class="p">
+${p.line ? `<div class="lineTag">${p.line}</div>` : ""}
 <div class="name">${p.name}</div>
 <ul>
 ${(p.features||[]).slice(0,5).map(f=>`<li>${f}</li>`).join("")}
@@ -173,7 +270,6 @@ const encoded = encodeURIComponent(
 btoa(unescape(encodeURIComponent(JSON.stringify(items))))
 );
 
-/* 🔥 مسار ثابت صحيح */
 const base = window.location.origin + "/LG-catalog/";
 return base + "view.html?c=" + encoded;
 }
