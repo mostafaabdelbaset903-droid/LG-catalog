@@ -500,40 +500,40 @@ window.PRODUCTS = [
   id: "fl_F0Z8DRP24",
   section: "washer",
   line: "Front Load",
-  name: "غسالة تحميل أمامي",
+  name: "غسالة تحميل أمامي F0Z8DRP24",
   model: "F0Z8DRP24",
   img: "images/F0Z8DRP24.jpg",
-  features: ["التكنولوجيا الأساسية: —", "برامج ThinQ: —", "برامج على البوردة: —"],
+  features: ["التكنولوجيا الأساسية: AIDD", "برامج ThinQ:37", "برامج على البوردة: 5"],
   dims: { w: "70", d: "77", h: "99" }
 },
 {
   id: "fl_F0Z8DYP24",
   section: "washer",
   line: "Front Load",
-  name: "غسالة تحميل أمامي",
+  name: "F0Z8DYP24 غسالة تحميل أمامي",
   model: "F0Z8DYP24",
   img: "images/F0Z8DYP24.jpg",
-  features: ["التكنولوجيا الأساسية: —", "برامج ThinQ: —", "برامج على البوردة: —"],
+  features: ["التكنولوجيا الأساسية: 37", "بخار ThinQ: AIDD", "برامج على البوردة: 5"],
   dims: { w: "70", d: "77", h: "99" }
 },
 {
   id: "fl_F0Z6DRP24",
   section: "washer",
   line: "Front Load",
-  name: "غسالة تحميل أمامي",
+  name: "غسالة تحميل أمامي F0Z6DRP24",
   model: "F0Z6DRP24",
   img: "images/F0Z6DRP24.jpg",
-  features: ["التكنولوجيا الأساسية: —", "برامج ThinQ: —", "برامج على البوردة: —"],
+  features: ["التكنولوجيا الأساسية: AIDD", "بخار ThinQ: 37", "برامج على البوردة: 5"],
   dims: { w: "65", d: "65", h: "95" }
 },
 {
   id: "fl_F0Z6DYP24",
   section: "washer",
   line: "Front Load",
-  name: "غسالة تحميل أمامي",
+  name: "غسالة تحميل أمامي F0Z6DYP24",
   model: "F0Z6DYP24",
   img: "images/F0Z6DYP24.jpg",
-  features: ["التكنولوجيا الأساسية: —", "برامج ThinQ: —", "برامج على البوردة: —"],
+  features: ["التكنولوجيا الأساسية:AIDD", "بخار ThinQ: 37", "برامج على البوردة: 5"],
   dims: { w: "65", d: "65", h: "95" }
 },
 
@@ -1057,4 +1057,5 @@ window.PRODUCTS = [
 }
 
 ];
+
 
