@@ -5,6 +5,87 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Built-in & ميكروويف</title>
 <link rel="stylesheet" href="soft-ui.css">
+
+<style>
+
+/* ===== Hero Section ===== */
+.heroBuilt{
+  margin:20px 0 25px;
+  padding:35px 25px;
+  border-radius:28px;
+  background: linear-gradient(135deg,#ffffff,#f3f6fb);
+  border:1px solid rgba(15,23,42,.08);
+  box-shadow:0 25px 60px rgba(15,23,42,.08);
+  position:relative;
+  overflow:hidden;
+}
+
+.heroBuilt::after{
+  content:"";
+  position:absolute;
+  width:300px;
+  height:300px;
+  background:radial-gradient(circle,#34d39920,transparent 70%);
+  right:-100px;
+  top:-100px;
+}
+
+.heroBuilt h1{
+  margin:0;
+  font-size:26px;
+  font-weight:1000;
+}
+
+.heroBuilt p{
+  margin:8px 0 0;
+  font-size:14px;
+  opacity:.7;
+}
+
+/* ===== Card Animation ===== */
+.card{
+  animation:fadeUp .6s ease both;
+}
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(18px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.card:hover{
+  transform:translateY(-6px) scale(1.02);
+  box-shadow:0 25px 50px rgba(0,0,0,.08);
+}
+
+/* Line Tag */
+.lineTag{
+  display:inline-block;
+  margin-bottom:8px;
+  padding:5px 10px;
+  font-size:12px;
+  font-weight:900;
+  border-radius:999px;
+  background:#34d39920;
+  color:#065f46;
+}
+
+/* Button Hover */
+.btnAdd{
+  transition:all .25s ease;
+}
+
+.btnAdd:hover{
+  transform:scale(1.04);
+  box-shadow:0 12px 30px rgba(34,197,94,.3);
+}
+
+</style>
 </head>
 <body>
 
@@ -30,6 +111,13 @@
 </div>
 </header>
 
+<div class="wrap">
+<div class="heroBuilt">
+<h1>حلول مطبخ متكاملة 🔥</h1>
+<p>أفران – مسطحات – شفاطات – ميكروويف بتصميم عصري وتقنيات ذكية</p>
+</div>
+</div>
+
 <div class="wrap layout">
 <main id="content"></main>
 
@@ -43,7 +131,6 @@
 </div>
 
 <div id="cartBody">
-
 <div class="cartItems" id="cartItems">
 <div class="small">لسه مفيش اختيارات.</div>
 </div>
@@ -71,7 +158,6 @@
 لينك العميل:
 <span id="linkOut">—</span>
 </div>
-
 </div>
 </aside>
 </div>
@@ -82,9 +168,7 @@
 
 <script>
 
-/* 🔥 لينك Google Script */
 const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwgSdcyBHLtT-8VNJGEm1EP8lej3iZBFNN58d8qatSlEaPgOKCr2xBPeA2X6oB9-Iez/exec";
-
 const CART_KEY = "lg_cart_v1";
 
 function loadCart(){
@@ -109,19 +193,19 @@ let cartVisible = true;
 /* عرض Built-in */
 function renderProducts(){
 
-contentEl.innerHTML = "";
-const items = ALL.filter(p => p.section === "builtin");
+contentEl.innerHTML="";
+const items = ALL.filter(p=>p.section==="builtin");
 
-if(items.length === 0){
-contentEl.innerHTML = "<div class='small'>لا توجد منتجات Built-in</div>";
+if(items.length===0){
+contentEl.innerHTML="<div class='small'>لا توجد منتجات</div>";
 return;
 }
 
-const grid = document.createElement("div");
-grid.className = "grid";
+const grid=document.createElement("div");
+grid.className="grid";
 
 items.forEach(p=>{
-const card = document.createElement("div");
+const card=document.createElement("div");
 card.className="card";
 
 card.innerHTML=`
@@ -129,6 +213,7 @@ card.innerHTML=`
 <img src="${p.img || ""}" alt="">
 </div>
 <div class="p">
+${p.line ? `<div class="lineTag">${p.line}</div>` : ""}
 <div class="name">${p.name || p.model || "—"}</div>
 <ul>
 ${(p.features||[]).slice(0,6).map(f=>`<li>${f}</li>`).join("")}
@@ -136,8 +221,7 @@ ${(p.features||[]).slice(0,6).map(f=>`<li>${f}</li>`).join("")}
 ${p.dims ? `
 <div class="dimsBox">
 <div>${p.dims.w} × ${p.dims.d} × ${p.dims.h}</div>
-</div>
-` : ""}
+</div>` : ""}
 <button class="btn btnAdd">أضف للسلة</button>
 </div>
 `;
@@ -166,7 +250,6 @@ renderCart();
 window.removeFromCart = removeFromCart;
 
 function renderCart(){
-
 const items = cart.map(id=>ALL.find(p=>p.id===id)).filter(Boolean);
 cartCountEl.textContent = items.length + " موديل";
 
@@ -178,15 +261,12 @@ return;
 cartItemsEl.innerHTML = items.map(p=>`
 <div class="cartItem">
 <div>${p.name || p.model || p.id}</div>
-<button class="btn btnGhost"
-onclick="removeFromCart('${p.id}')">حذف</button>
+<button class="btn btnGhost" onclick="removeFromCart('${p.id}')">حذف</button>
 </div>
 `).join("");
 }
 
-/* إنشاء لينك ثابت */
 function buildLink(){
-
 const items = cart.map(id=>ALL.find(p=>p.id===id)).filter(Boolean);
 if(items.length===0) return "";
 
@@ -199,38 +279,34 @@ return base + "view.html?c=" + encoded;
 }
 
 document.getElementById("btnLink").onclick=()=>{
-const link = buildLink();
+const link=buildLink();
 linkOutEl.innerHTML = link ? `<a href="${link}" target="_blank">فتح</a>` : "—";
 };
 
 document.getElementById("btnWhats").onclick=()=>{
 
-const phone = phoneInput.value.trim();
-const employee = employeeInput.value.trim();
+const phone=phoneInput.value.trim();
+const employee=employeeInput.value.trim();
 
 if(!phone) return alert("اكتب رقم العميل");
 if(!employee) return alert("اكتب اسم الموظف");
 
-const link = buildLink();
+const link=buildLink();
 if(!link) return alert("السلة فاضية");
 
 const items = cart.map(id=>ALL.find(p=>p.id===id)).filter(Boolean);
 const list = items.map((p,i)=>`${i+1}) ${p.name || p.model || p.id}`).join("\n");
 
-const msg = `
-أهلاً بحضرتك 🌟
-دي الموديلات المختارة:
-${list}
-
-تفاصيل كاملة:
-${link}
-
-تم الإرسال بواسطة: ${employee}
-`.trim();
+const msg =
+"أهلاً بحضرتك 🌟\n\n" +
+"دي الموديلات المختارة:\n" +
+list +
+"\n\nتفاصيل كاملة:\n" +
+link +
+"\n\nتم الإرسال بواسطة: " + employee;
 
 window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`,"_blank");
 
-/* تسجيل في Google Sheet */
 fetch(GOOGLE_SCRIPT_URL,{
 method:"POST",
 body:JSON.stringify({
