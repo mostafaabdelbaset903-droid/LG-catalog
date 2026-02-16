@@ -5,6 +5,74 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>ثلاجات LG</title>
 <link rel="stylesheet" href="soft-ui.css">
+
+<style>
+
+/* ===== Hero Section ===== */
+.heroFridge{
+  margin:20px 0 25px;
+  padding:35px 25px;
+  border-radius:28px;
+  background: linear-gradient(135deg,#ffffff,#eef3f9);
+  border:1px solid rgba(15,23,42,.08);
+  box-shadow:0 25px 60px rgba(15,23,42,.08);
+  position:relative;
+  overflow:hidden;
+}
+
+.heroFridge::after{
+  content:"";
+  position:absolute;
+  width:280px;
+  height:280px;
+  background:radial-gradient(circle,#a5003420,transparent 70%);
+  left:-100px;
+  top:-100px;
+}
+
+.heroFridge h1{
+  margin:0;
+  font-size:26px;
+  font-weight:1000;
+}
+
+.heroFridge p{
+  margin:8px 0 0;
+  font-size:14px;
+  opacity:.7;
+}
+
+/* Card Animation */
+.card{
+  animation:fadeUp .6s ease both;
+}
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(18px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.card:hover{
+  transform:translateY(-6px) scale(1.02);
+  box-shadow:0 25px 50px rgba(0,0,0,.08);
+}
+
+.btnAdd{
+  transition:all .25s ease;
+}
+
+.btnAdd:hover{
+  transform:scale(1.04);
+  box-shadow:0 12px 30px rgba(34,197,94,.3);
+}
+
+</style>
 </head>
 <body>
 
@@ -30,6 +98,13 @@
 </div>
 </header>
 
+<div class="wrap">
+<div class="heroFridge">
+<h1>تكنولوجيا تبريد متطورة ❄️</h1>
+<p>Smart Inverter – Multi Air Flow – تصميم أنيق وسعة كبيرة</p>
+</div>
+</div>
+
 <div class="wrap layout">
 <main id="content"></main>
 
@@ -43,7 +118,6 @@
 </div>
 
 <div id="cartBody">
-
 <div class="cartItems" id="cartItems">
 <div class="small">لسه مفيش اختيارات.</div>
 </div>
@@ -51,7 +125,7 @@
 <div class="row">
 <div style="width:100%">
 <div class="small" style="margin:8px 0 6px;">رقم واتساب العميل</div>
-<input id="phone" placeholder="2010xxxxxxx"/>
+<input id="phone" placeholder="2010xxxxxxxxx"/>
 </div>
 </div>
 
@@ -71,7 +145,6 @@
 لينك العميل:
 <span id="linkOut">—</span>
 </div>
-
 </div>
 </aside>
 </div>
@@ -104,7 +177,7 @@ const employeeInput = document.getElementById("employee");
 let cart = loadCart();
 let cartVisible = true;
 
-/* ===== عرض الثلاجات ===== */
+/* عرض الثلاجات */
 function renderProducts(){
 contentEl.innerHTML="";
 const items = ALL.filter(p=>p.section==="fridge");
@@ -137,7 +210,7 @@ grid.appendChild(card);
 contentEl.appendChild(grid);
 }
 
-/* ===== السلة ===== */
+/* السلة */
 function addToCart(id){
 if(!cart.includes(id)){
 cart.push(id);
@@ -170,7 +243,7 @@ cartItemsEl.innerHTML = items.map(p=>`
 `).join("");
 }
 
-/* ===== نفس طريقة التكييف بالظبط ===== */
+/* نفس طريقة التكييف */
 function buildLink(){
 const items = cart.map(id=>ALL.find(p=>p.id===id)).filter(Boolean);
 if(items.length===0) return "";
@@ -179,7 +252,6 @@ const encoded = encodeURIComponent(
 btoa(unescape(encodeURIComponent(JSON.stringify(items))))
 );
 
-/* 🔥 مسار ثابت زي التكييف */
 const base = window.location.origin + "/LG-catalog/";
 return base + "view.html?c=" + encoded;
 }
@@ -247,5 +319,6 @@ renderProducts();
 renderCart();
 
 </script>
+
 </body>
 </html>
