@@ -358,7 +358,7 @@ window.PRODUCTS = [
   model: "FWT1310BGP",
   img: "images/FWT1310BGP.jpg",
   features: [
-    "التكنولوجيا الأساسية: —",
+    "التكنولوجيا الأساسية: AIDD",
     "برامج ThinQ (الأبلكيشن): —",
     "برامج على البوردة: —"
   ],
@@ -372,7 +372,7 @@ window.PRODUCTS = [
   model: "FWT2116BS",
   img: "images/FWT2116BS.jpg",
   features: [
-    "التكنولوجيا الأساسية: —",
+    "التكنولوجيا الأساسية: AIDD",
     "برامج ThinQ (الأبلكيشن): —",
     "برامج على البوردة: —"
   ],
@@ -386,7 +386,7 @@ window.PRODUCTS = [
   model: "FWT2116SS",
   img: "images/FWT2116SS.jpg",
   features: [
-    "التكنولوجيا الأساسية: —",
+    "التكنولوجيا الأساسية: AIDD",
     "برامج ThinQ (الأبلكيشن): —",
     "برامج على البوردة: —"
   ],
@@ -403,8 +403,8 @@ window.PRODUCTS = [
   img: "images/RH80T2SP7RM.jpg",
   features: [
     "التكنولوجيا الأساسية: Heat Pump",
-    "برامج ThinQ (الأبلكيشن): —",
-    "برامج على البوردة: —"
+    "Sensor Dry",
+    "Elegant Design"
   ],
   dims: { w: "60", d: "60", h: "85" }
 },
@@ -417,8 +417,8 @@ window.PRODUCTS = [
   img: "images/RH10V9JV2W.jpg",
   features: [
     "التكنولوجيا الأساسية: Dual Inverter Heat Pump",
-    "برامج ThinQ (الأبلكيشن): —",
-    "برامج على البوردة: —"
+    "Antibacterial Cycle",
+    "Auto Cleaning Condenser"
   ],
   dims: { w: "60", d: "66", h: "85" }
 },
@@ -431,8 +431,8 @@ window.PRODUCTS = [
   img: "images/RH10V9PV2W.jpg",
   features: [
     "التكنولوجيا الأساسية: Dual Inverter Heat Pump",
-    "برامج ThinQ (الأبلكيشن): —",
-    "برامج على البوردة: —"
+    "Antibacterial Cycle",
+    "Auto Cleaning Condenser"
   ],
   dims: { w: "60", d: "66", h: "85" }
 },
@@ -447,8 +447,8 @@ window.PRODUCTS = [
   img: "images/T23H9EFHST.jpg",
   features: [
     "التكنولوجيا الأساسية: AI DD + TurboWash",
-    "برامج ThinQ (الأبلكيشن): —",
-    "برامج على البوردة: —"
+    "Wide Lint Filter",
+    "LCD Panel"
   ],
   dims: { w: "70", d: "73", h: "107" }
 },
@@ -461,8 +461,8 @@ window.PRODUCTS = [
   img: "images/T23X5EHHSTX.jpg",
   features: [
     "التكنولوجيا الأساسية: AI DD + ThinQ",
-    "برامج ThinQ (الأبلكيشن): —",
-    "برامج على البوردة: —"
+    "Turbo-Jet Dispenser",
+    "Turbo Wash™"
   ],
   dims: { w: "70", d: "73", h: "107" }
 },
@@ -475,8 +475,8 @@ window.PRODUCTS = [
   img: "images/T1164NEHGB.jpg",
   features: [
     "التكنولوجيا الأساسية: Smart Inverter",
-    "برامج ThinQ (الأبلكيشن): —",
-    "برامج على البوردة: —"
+    "TurboDrum™",
+    "LoDecibel™ Quiet System"
   ],
   dims: { w: "59", d: "60", h: "95" }
 },
@@ -489,8 +489,8 @@ window.PRODUCTS = [
   img: "images/T1388NEHGB.jpg",
   features: [
     "التكنولوجيا الأساسية: TurboDrum + LoDecibel",
-    "برامج ThinQ (الأبلكيشن): —",
-    "برامج على البوردة: —"
+    "LoDecibel™ Quiet System",
+    "Smart Diagnosis™"
   ],
   dims: { w: "60", d: "61", h: "96" }
 },
@@ -542,50 +542,53 @@ window.PRODUCTS = [
   id: "fl_F4Y2VYGYP",
   section: "washer",
   line: "Front Load",
-  name: "غسالة تحميل أمامي",
+  name: "F4Y2VYGYP غسالة تحميل أمامي",
   model: "F4Y2VYGYP",
   img: "images/F4Y2VYGYP.jpg",
-  features: ["التكنولوجيا الأساسية: —", "برامج ThinQ: —", "برامج على البوردة: —"],
+  features: ["التكنولوجيا الأساسية: Inverter Direct Drive™
+", "بخار ThinQ: 10", "برامج على البوردة: 9"],
   dims: { w: "60", d: "60", h: "85" }
 },
 {
   id: "fl_F4Y2VYGYZ",
   section: "washer",
   line: "Front Load",
-  name: "غسالة تحميل أمامي",
+  name: "F4Y2VYGYZ غسالة تحميل أمامي",
   model: "F4Y2VYGYZ",
   img: "images/F4Y2VYGYZ.jpg",
-  features: ["التكنولوجيا الأساسية: —", "برامج ThinQ: —", "برامج على البوردة: —"],
+  features: ["التكنولوجيا الأساسية: Inverter Direct Drive™
+", "برامج ThinQ: 10", "برامج على البوردة: 9"],
   dims: { w: "60", d: "60", h: "85" }
 },
 {
   id: "fl_F4Y2VYGYX",
   section: "washer",
   line: "Front Load",
-  name: "غسالة تحميل أمامي",
+  name: "F4Y2VYGYX غسالة تحميل أمامي",
   model: "F4Y2VYGYX",
   img: "images/F4Y2VYGYX.jpg",
-  features: ["التكنولوجيا الأساسية: —", "برامج ThinQ: —", "برامج على البوردة: —"],
+  features: ["التكنولوجيا الأساسية: Inverter Direct Drive™
+", "برامج ThinQ: 10", "برامج على البوردة: 9"],
   dims: { w: "60", d: "60", h: "85" }
 },
 {
   id: "fl_F4Y2TYGYZ",
   section: "washer",
   line: "Front Load",
-  name: "غسالة تحميل أمامي",
+  name: "F4Y2TYGYZ غسالة تحميل أمامي",
   model: "F4Y2TYGYZ",
   img: "images/F4Y2TYGYZ.jpg",
-  features: ["التكنولوجيا الأساسية: —", "برامج ThinQ: —", "برامج على البوردة: —"],
+  features: ["التكنولوجيا الأساسية: Inverter Direct Drive™", "بخار ThinQ: 10", "برامج على البوردة: 9"],
   dims: { w: "60", d: "60", h: "85" }
 },
 {
   id: "fl_F4Y2TYGYP",
   section: "washer",
   line: "Front Load",
-  name: "غسالة تحميل أمامي",
+  name: "F4Y2TYGYP غسالة تحميل أمامي",
   model: "F4Y2TYGYP",
   img: "images/F4Y2TYGYP.jpg",
-  features: ["التكنولوجيا الأساسية: —", "برامج ThinQ: —", "برامج على البوردة: —"],
+  features: ["التكنولوجيا الأساسية: F4Y2TYGYP", "بخار ThinQ: 10", "برامج على البوردة: 9"],
   dims: { w: "60", d: "60", h: "85" }
 },
 {
@@ -602,20 +605,22 @@ window.PRODUCTS = [
   id: "fl_F4Y2QYG6P",
   section: "washer",
   line: "Front Load",
-  name: "غسالة تحميل أمامي",
+  name: "F4Y2TYG6X غسالة تحميل أمامي",
   model: "F4Y2QYG6P",
   img: "images/F4Y2QYG6P.jpg",
-  features: ["التكنولوجيا الأساسية: —", "برامج ThinQ: —", "برامج على البوردة: —"],
+  features: ["التكنولوجيا الأساسية: Inverter Direct Drive™
+", "بخار ThinQ: 10", "برامج على البوردة: 9"],
   dims: { w: "60", d: "60", h: "85" }
 },
 {
   id: "fl_F4Y2QYG6X",
   section: "washer",
   line: "Front Load",
-  name: "غسالة تحميل أمامي",
+  name: "F4Y2QYG6X غسالة تحميل أمامي",
   model: "F4Y2QYG6X",
   img: "images/F4Y2QYG6X.jpg",
-  features: ["التكنولوجيا الأساسية: —", "برامج ThinQ: —", "برامج على البوردة: —"],
+  features: ["التكنولوجيا الأساسية: Inverter Direct Drive™
+", "بخار ThinQ: 10", "برامج على البوردة: 9"],
   dims: { w: "60", d: "60", h: "85" }
 },
 
@@ -624,20 +629,20 @@ window.PRODUCTS = [
   id: "fl_F4X5EYG24",
   section: "washer",
   line: "Front Load",
-  name: "غسالة تحميل أمامي",
+  name: "F4X5EYG24 غسالة تحميل أمامي",
   model: "F4X5EYG24",
   img: "images/F4X5EYG24.jpg",
-  features: ["التكنولوجيا الأساسية: —", "برامج ThinQ: —", "برامج على البوردة: —"],
+  features: ["التكنولوجيا الأساسية:AI DD™", "بخار ThinQ: 10", "برامج على البوردة: 12"],
   dims: { w: "60", d: "60", h: "85" }
 },
 {
   id: "fl_F4X5RYG24",
   section: "washer",
   line: "Front Load",
-  name: "غسالة تحميل أمامي",
+  name: "F4X5RYG24 غسالة تحميل أمامي",
   model: "F4X5RYG24",
   img: "images/F4X5RYG24.jpg",
-  features: ["التكنولوجيا الأساسية: —", "برامج ThinQ: —", "برامج على البوردة: —"],
+  features: ["التكنولوجيا الأساسية: AI DD™", "بخار ThinQ: 9", "برامج على البوردة: 12"],
   dims: { w: "60", d: "60", h: "85" }
 },
 /* ====================== FRIDGES ====================== */
@@ -647,7 +652,7 @@ window.PRODUCTS = [
   section:"fridge",
   name:"GRTB622PFBQ",
   img:"images/fridges/GRTB622PFBQ.jpg",
-  features:["Smart Inverter Compressor","Multi Air Flow","No Frost"],
+  features:["Smart Inverter Compressor","Multi Air Flow","No Frost","LinearCooling"],
   dims:{w:"831",d:"741",h:"1860"}
 },
 {
@@ -655,7 +660,7 @@ window.PRODUCTS = [
   section:"fridge",
   name:"GN-F602PQBQ",
   img:"images/fridges/GN-F602PQBQ.jpg",
-  features:["Smart Inverter Compressor","Multi Air Flow","No Frost"],
+  features:["Smart Inverter Compressor","Multi Air Flow","No Frost","LinearCooling™"],
   dims:{w:"700",d:"725",h:"1845"}
 },
 {
@@ -663,7 +668,7 @@ window.PRODUCTS = [
   section:"fridge",
   name:"GN-F592PQBQ",
   img:"images/fridges/GN-F592PQBQ.jpg",
-  features:["Smart Inverter Compressor","Multi Air Flow","No Frost"],
+  features:["Smart Inverter Compressor","Multi Air Flow","No Frost","LinearCooling™"],
   dims:{w:"700",d:"725",h:"1845"}
 },
 {
@@ -743,7 +748,7 @@ window.PRODUCTS = [
   section:"fridge",
   name:"GC-X257CQEW",
   img:"images/fridges/GC-X257CQEW.jpg",
-  features:["Smart Inverter Compressor","Multi Air Flow","No Frost"],
+  features:["Smart Inverter Compressor","Non Plumbing Water and Ice Dispenser","LG ThinQᵀᴹ","Instaview™ Door in Door™"],
   dims:{w:"913",d:"735",h:"1790"}
 },
 {
@@ -751,7 +756,7 @@ window.PRODUCTS = [
   section:"fridge",
   name:"GC-J257KLKW",
   img:"images/fridges/GC-J257KLKW.jpg",
-  features:["Smart Inverter Compressor","Multi Air Flow","No Frost"],
+  features:["Smart Inverter Compressor","Non Plumbing Water and Ice Dispenser","No Frost"],
   dims:{w:"913",d:"735",h:"1790"}
 },
 {
@@ -767,7 +772,7 @@ window.PRODUCTS = [
   section:"fridge",
   name:"GC-X22FFQAB",
   img:"images/fridges/GC-X22FFQAB.jpg",
-  features:["Smart Inverter Compressor","Multi Air Flow","No Frost"],
+  features:["Smart Inverter Compressor","Non Plumbing Water and Ice Dispenser","Instaview™ Door in Door™"],
   dims:{w:"835",d:"730",h:"1787"}
 },
 {
@@ -775,7 +780,7 @@ window.PRODUCTS = [
   section:"fridge",
   name:"GW-B489FS6W",
   img:"images/fridges/GW-B489FS6W.jpg",
-  features:["Smart Inverter Compressor","Multi Air Flow","No Frost"],
+  features:["Smart Inverter Compressor","Multi Air Flow","Door Cooling+™"],
   dims:{w:"595",d:"682",h:"1860"}
 },
 {
@@ -783,7 +788,7 @@ window.PRODUCTS = [
   section:"fridge",
   name:"GW-B489FSGW",
   img:"images/fridges/GW-B489FSGW.jpg",
-  features:["Smart Inverter Compressor","Multi Air Flow","No Frost"],
+  features:["Smart Inverter Compressor","Multi Air Flow","Door Cooling+™"],
   dims:{w:"595",d:"682",h:"1860"}
 },
 {
@@ -791,7 +796,7 @@ window.PRODUCTS = [
   section:"fridge",
   name:"GW-B489FM6W",
   img:"images/fridges/GW-B489FM6W.jpg",
-  features:["Smart Inverter Compressor","Multi Air Flow","No Frost"],
+  features:["Smart Inverter Compressor","Multi Air Flow","Door Cooling+™"],
   dims:{w:"595",d:"682",h:"1860"}
 },
 {
@@ -799,7 +804,7 @@ window.PRODUCTS = [
   section:"fridge",
   name:"GW-B489FMGW",
   img:"images/fridges/GW-B489FMGW.jpg",
-  features:["Smart Inverter Compressor","Multi Air Flow","No Frost"],
+  features:["Smart Inverter Compressor","Multi Air Flow","Door Cooling+™"],
   dims:{w:"595",d:"682",h:"1860"}
 },
 /* ====================== DISHWASHERS ====================== */
@@ -1057,5 +1062,6 @@ window.PRODUCTS = [
 }
 
 ];
+
 
 
