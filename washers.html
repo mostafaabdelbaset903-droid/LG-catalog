@@ -5,6 +5,74 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>غسالات LG</title>
 <link rel="stylesheet" href="soft-ui.css">
+
+<style>
+
+/* ===== Hero Section ===== */
+.heroWasher{
+  margin:20px 0 25px;
+  padding:35px 25px;
+  border-radius:28px;
+  background: linear-gradient(135deg,#ffffff,#eef3f9);
+  border:1px solid rgba(15,23,42,.08);
+  box-shadow:0 25px 60px rgba(15,23,42,.08);
+  position:relative;
+  overflow:hidden;
+}
+
+.heroWasher::after{
+  content:"";
+  position:absolute;
+  width:300px;
+  height:300px;
+  background:radial-gradient(circle,#22c55e20,transparent 70%);
+  right:-100px;
+  top:-100px;
+}
+
+.heroWasher h1{
+  margin:0;
+  font-size:26px;
+  font-weight:1000;
+}
+
+.heroWasher p{
+  margin:8px 0 0;
+  font-size:14px;
+  opacity:.7;
+}
+
+/* Card Animation */
+.card{
+  animation:fadeUp .6s ease both;
+}
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(18px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.card:hover{
+  transform:translateY(-6px) scale(1.02);
+  box-shadow:0 25px 50px rgba(0,0,0,.08);
+}
+
+.btnAdd{
+  transition:all .25s ease;
+}
+
+.btnAdd:hover{
+  transform:scale(1.04);
+  box-shadow:0 12px 30px rgba(34,197,94,.3);
+}
+
+</style>
 </head>
 
 <body>
@@ -30,6 +98,14 @@
 </div>
 </div>
 </header>
+
+<!-- HERO -->
+<div class="wrap">
+<div class="heroWasher">
+<h1>أداء ذكي… تنظيف مثالي 🧺</h1>
+<p>AI DD™ – Steam™ – توفير طاقة ومياه بأعلى كفاءة</p>
+</div>
+</div>
 
 <div class="wrap layout">
 <main id="content"></main>
@@ -106,19 +182,19 @@ let cart = loadCart();
 let cartVisible = true;
 
 function renderProducts(){
-contentEl.innerHTML = "";
-const items = ALL.filter(p => p.section === "washer");
+contentEl.innerHTML="";
+const items = ALL.filter(p=>p.section==="washer");
 
-if(items.length === 0){
-contentEl.innerHTML = "<div class='small'>لا توجد منتجات</div>";
+if(items.length===0){
+contentEl.innerHTML="<div class='small'>لا توجد منتجات</div>";
 return;
 }
 
-const grid = document.createElement("div");
-grid.className = "grid";
+const grid=document.createElement("div");
+grid.className="grid";
 
 items.forEach(p=>{
-const card = document.createElement("div");
+const card=document.createElement("div");
 card.className="card";
 
 card.innerHTML=`
@@ -130,11 +206,7 @@ card.innerHTML=`
 <ul>
 ${(p.features||[]).slice(0,5).map(f=>`<li>${f}</li>`).join("")}
 </ul>
-${p.dims ? `
-<div class="dimsBox">
-<div>${p.dims.w} × ${p.dims.d} × ${p.dims.h}</div>
-</div>
-` : ""}
+${p.dims ? `<div class="dimsBox"><div>${p.dims.w} × ${p.dims.d} × ${p.dims.h}</div></div>` : ""}
 <button class="btn btnAdd">أضف للسلة</button>
 </div>
 `;
@@ -155,71 +227,66 @@ renderCart();
 }
 
 function removeFromCart(id){
-cart = cart.filter(x=>x!==id);
+cart=cart.filter(x=>x!==id);
 saveCart(cart);
 renderCart();
 }
-window.removeFromCart = removeFromCart;
+window.removeFromCart=removeFromCart;
 
 function renderCart(){
-const items = cart.map(id=>ALL.find(p=>p.id===id)).filter(Boolean);
-cartCountEl.textContent = items.length + " موديل";
+const items=cart.map(id=>ALL.find(p=>p.id===id)).filter(Boolean);
+cartCountEl.textContent=items.length+" موديل";
 
 if(items.length===0){
 cartItemsEl.innerHTML="<div class='small'>لسه مفيش اختيارات.</div>";
 return;
 }
 
-cartItemsEl.innerHTML = items.map(p=>`
+cartItemsEl.innerHTML=items.map(p=>`
 <div class="cartItem">
 <div>${p.name || p.model || p.id}</div>
-<button class="btn btnGhost"
-onclick="removeFromCart('${p.id}')">حذف</button>
+<button class="btn btnGhost" onclick="removeFromCart('${p.id}')">حذف</button>
 </div>
 `).join("");
 }
 
 function buildLink(){
-const items = cart.map(id=>ALL.find(p=>p.id===id)).filter(Boolean);
+const items=cart.map(id=>ALL.find(p=>p.id===id)).filter(Boolean);
 if(items.length===0) return "";
 
-const encoded = encodeURIComponent(
+const encoded=encodeURIComponent(
 btoa(unescape(encodeURIComponent(JSON.stringify(items))))
 );
 
-const base = location.origin + location.pathname.replace("washers.html","");
-return base + "view.html?c=" + encoded;
+const base=location.origin+location.pathname.replace("washers.html","");
+return base+"view.html?c="+encoded;
 }
 
 document.getElementById("btnLink").onclick=()=>{
-const link = buildLink();
-linkOutEl.innerHTML = link ? `<a href="${link}" target="_blank">فتح</a>` : "—";
+const link=buildLink();
+linkOutEl.innerHTML=link?`<a href="${link}" target="_blank">فتح</a>`:"—";
 };
 
 document.getElementById("btnWhats").onclick=()=>{
-
-const phone = phoneInput.value.trim();
-const employee = employeeInput.value.trim();
+const phone=phoneInput.value.trim();
+const employee=employeeInput.value.trim();
 
 if(!phone) return alert("اكتب رقم العميل");
 if(!employee) return alert("اكتب اسم الموظف");
 
-const link = buildLink();
+const link=buildLink();
 if(!link) return alert("السلة فاضية");
 
-const items = cart.map(id=>ALL.find(p=>p.id===id)).filter(Boolean);
-const list = items.map((p,i)=>`${i+1}) ${p.name || p.model || p.id}`).join("\n");
+const items=cart.map(id=>ALL.find(p=>p.id===id)).filter(Boolean);
+const list=items.map((p,i)=>`${i+1}) ${p.name || p.model || p.id}`).join("\n");
 
-const msg = `
-أهلاً بحضرتك 🌟
-دي الموديلات المختارة:
-${list}
-
-تفاصيل كاملة:
-${link}
-
-تم الإرسال بواسطة: ${employee}
-`.trim();
+const msg=
+"أهلاً بحضرتك 🌟\n\n"+
+"دي الموديلات المختارة:\n"+
+list+
+"\n\nتفاصيل كاملة:\n"+
+link+
+"\n\nتم الإرسال بواسطة: "+employee;
 
 window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`,"_blank");
 
@@ -233,7 +300,6 @@ link:link,
 date:new Date().toLocaleString()
 })
 });
-
 };
 
 document.getElementById("btnClear").onclick=()=>{
