@@ -403,8 +403,8 @@ window.PRODUCTS = [
   img: "images/RH80T2SP7RM.jpg",
   features: [
     "التكنولوجيا الأساسية: Heat Pump",
-    "برامج ThinQ (الأبلكيشن): —",
-    "برامج على البوردة: —"
+    "Sensor Dry",
+    "Elegant Design"
   ],
   dims: { w: "60", d: "60", h: "85" }
 },
@@ -417,8 +417,8 @@ window.PRODUCTS = [
   img: "images/RH10V9JV2W.jpg",
   features: [
     "التكنولوجيا الأساسية: Dual Inverter Heat Pump",
-    "برامج ThinQ (الأبلكيشن): —",
-    "برامج على البوردة: —"
+    "برامج ThinQ (الأبلكيشن)",
+    "Auto Cleaning Condenser"
   ],
   dims: { w: "60", d: "66", h: "85" }
 },
@@ -431,8 +431,8 @@ window.PRODUCTS = [
   img: "images/RH10V9PV2W.jpg",
   features: [
     "التكنولوجيا الأساسية: Dual Inverter Heat Pump",
-    "برامج ThinQ (الأبلكيشن): —",
-    "برامج على البوردة: —"
+    "ThinQ (الأبلكيشن)",
+    "Auto Cleaning Condenser"
   ],
   dims: { w: "60", d: "66", h: "85" }
 },
@@ -447,8 +447,8 @@ window.PRODUCTS = [
   img: "images/T23H9EFHST.jpg",
   features: [
     "التكنولوجيا الأساسية: AI DD + TurboWash",
-    "برامج ThinQ (الأبلكيشن): —",
-    "برامج على البوردة: —"
+    "ThinQ (الأبلكيشن)",
+    "Scent+"
   ],
   dims: { w: "70", d: "73", h: "107" }
 },
@@ -461,8 +461,8 @@ window.PRODUCTS = [
   img: "images/T23X5EHHSTX.jpg",
   features: [
     "التكنولوجيا الأساسية: AI DD + ThinQ",
-    "برامج ThinQ (الأبلكيشن): —",
-    "برامج على البوردة: —"
+    "urbo-Jet Dispenser",
+    "Smart Diagnosis"
   ],
   dims: { w: "70", d: "73", h: "107" }
 },
@@ -475,8 +475,8 @@ window.PRODUCTS = [
   img: "images/T1164NEHGB.jpg",
   features: [
     "التكنولوجيا الأساسية: Smart Inverter",
-    "برامج ThinQ (الأبلكيشن): —",
-    "برامج على البوردة: —"
+    "Smart Motion",
+    "Smart Diagnosis"
   ],
   dims: { w: "59", d: "60", h: "95" }
 },
@@ -489,8 +489,8 @@ window.PRODUCTS = [
   img: "images/T1388NEHGB.jpg",
   features: [
     "التكنولوجيا الأساسية: TurboDrum + LoDecibel",
-    "برامج ThinQ (الأبلكيشن): —",
-    "برامج على البوردة: —"
+    "Smart Motion",
+    "Smart Diagnosis"
   ],
   dims: { w: "60", d: "61", h: "96" }
 },
@@ -545,7 +545,7 @@ window.PRODUCTS = [
   name: "غسالة تحميل أمامي",
   model: "F4Y2VYGYP",
   img: "images/F4Y2VYGYP.jpg",
-  features: ["التكنولوجيا الأساسية: —", "برامج ThinQ: —", "برامج على البوردة: —"],
+  features: ["التكنولوجيا الأساسية: 10", "بخار ThinQ: —", "برامج على البوردة: 9"],
   dims: { w: "60", d: "60", h: "85" }
 },
 {
@@ -555,7 +555,7 @@ window.PRODUCTS = [
   name: "غسالة تحميل أمامي",
   model: "F4Y2VYGYZ",
   img: "images/F4Y2VYGYZ.jpg",
-  features: ["التكنولوجيا الأساسية: —", "برامج ThinQ: —", "برامج على البوردة: —"],
+  features: ["التكنولوجيا الأساسية: —", "بخار ThinQ: 10", "برامج على البوردة: 9"],
   dims: { w: "60", d: "60", h: "85" }
 },
 {
@@ -565,7 +565,7 @@ window.PRODUCTS = [
   name: "غسالة تحميل أمامي",
   model: "F4Y2VYGYX",
   img: "images/F4Y2VYGYX.jpg",
-  features: ["التكنولوجيا الأساسية: —", "برامج ThinQ: —", "برامج على البوردة: —"],
+  features: ["التكنولوجيا الأساسية: —", "بخار ThinQ: 10", "برامج على البوردة: 9"],
   dims: { w: "60", d: "60", h: "85" }
 },
 {
@@ -575,7 +575,7 @@ window.PRODUCTS = [
   name: "غسالة تحميل أمامي",
   model: "F4Y2TYGYZ",
   img: "images/F4Y2TYGYZ.jpg",
-  features: ["التكنولوجيا الأساسية: —", "برامج ThinQ: —", "برامج على البوردة: —"],
+  features: ["التكنولوجيا الأساسية: —", "بخار ThinQ: 10", "برامج على البوردة: 9"],
   dims: { w: "60", d: "60", h: "85" }
 },
 {
@@ -585,7 +585,7 @@ window.PRODUCTS = [
   name: "غسالة تحميل أمامي",
   model: "F4Y2TYGYP",
   img: "images/F4Y2TYGYP.jpg",
-  features: ["التكنولوجيا الأساسية: —", "برامج ThinQ: —", "برامج على البوردة: —"],
+  features: ["التكنولوجيا الأساسية: —", "بخار ThinQ: 10", "برامج على البوردة: 9"],
   dims: { w: "60", d: "60", h: "85" }
 },
 {
@@ -595,7 +595,7 @@ window.PRODUCTS = [
   name: "غسالة تحميل أمامي",
   model: "F4Y2TYG6X",
   img: "images/F4Y2TYG6X.jpg",
-  features: ["التكنولوجيا الأساسية: —", "برامج ThinQ: —", "برامج على البوردة: —"],
+  features: ["التكنولوجيا الأساسية: —", "بخار ThinQ: 10", "برامج على البوردة: 9"],
   dims: { w: "60", d: "60", h: "85" }
 },
 {
@@ -605,7 +605,7 @@ window.PRODUCTS = [
   name: "غسالة تحميل أمامي",
   model: "F4Y2QYG6P",
   img: "images/F4Y2QYG6P.jpg",
-  features: ["التكنولوجيا الأساسية: —", "برامج ThinQ: —", "برامج على البوردة: —"],
+  features: ["التكنولوجيا الأساسية: —", "بخار ThinQ: 10", "برامج على البوردة: 9"],
   dims: { w: "60", d: "60", h: "85" }
 },
 {
@@ -615,7 +615,7 @@ window.PRODUCTS = [
   name: "غسالة تحميل أمامي",
   model: "F4Y2QYG6X",
   img: "images/F4Y2QYG6X.jpg",
-  features: ["التكنولوجيا الأساسية: —", "برامج ThinQ: —", "برامج على البوردة: —"],
+  features: ["التكنولوجيا الأساسية: —", "بخار ThinQ: 10", "برامج على البوردة: 9"],
   dims: { w: "60", d: "60", h: "85" }
 },
 
@@ -627,7 +627,7 @@ window.PRODUCTS = [
   name: "غسالة تحميل أمامي",
   model: "F4X5EYG24",
   img: "images/F4X5EYG24.jpg",
-  features: ["التكنولوجيا الأساسية: —", "برامج ThinQ: —", "برامج على البوردة: —"],
+  features: ["التكنولوجيا الأساسية: AIDD", "بخار ThinQ: 10", "برامج على البوردة: 12"],
   dims: { w: "60", d: "60", h: "85" }
 },
 {
@@ -637,7 +637,7 @@ window.PRODUCTS = [
   name: "غسالة تحميل أمامي",
   model: "F4X5RYG24",
   img: "images/F4X5RYG24.jpg",
-  features: ["التكنولوجيا الأساسية: —", "برامج ThinQ: —", "برامج على البوردة: —"],
+  features: ["التكنولوجيا الأساسية: AIDD", "بخار ThinQ: 10", "برامج على البوردة: 12"],
   dims: { w: "60", d: "60", h: "85" }
 },
 /* ====================== FRIDGES ====================== */
@@ -1057,3 +1057,4 @@ window.PRODUCTS = [
 }
 
 ];
+
