@@ -358,9 +358,9 @@ window.PRODUCTS = [
   model: "FWT1310BGP",
   img: "images/FWT1310BGP.jpg",
   features: [
-    "التكنولوجيا الأساسية: —",
-    "برامج ThinQ (الأبلكيشن): —",
-    "برامج على البوردة: —"
+    "التكنولوجيا الأساسية:TurboWash™ 360",
+    "ThinQ",
+    "AIDD: تحكم مركزي"
   ],
   dims: { w: "60", d: "66", h: "166" }
 },
@@ -372,9 +372,9 @@ window.PRODUCTS = [
   model: "FWT2116BS",
   img: "images/FWT2116BS.jpg",
   features: [
-    "التكنولوجيا الأساسية: —",
+    "التكنولوجيا الأساسية:TurboWash™ 360",
     "برامج ThinQ (الأبلكيشن): —",
-    "برامج على البوردة: —"
+    "AIDD: تحكم مركزي"
   ],
   dims: { w: "70", d: "77", h: "186" }
 },
@@ -386,9 +386,9 @@ window.PRODUCTS = [
   model: "FWT2116SS",
   img: "images/FWT2116SS.jpg",
   features: [
-    "التكنولوجيا الأساسية: —",
-    "برامج ThinQ (الأبلكيشن): —",
-    "برامج على البوردة: —"
+    "التكنولوجيا الأساسية:TurboWash™ 360",
+    " ThinQ",
+    "AIDD: تحكم مركزي"
   ],
   dims: { w: "70", d: "77", h: "186" }
 },
@@ -592,7 +592,7 @@ window.PRODUCTS = [
   id: "fl_F4Y2TYG6X",
   section: "washer",
   line: "Front Load",
-  name: "غسالة تحميل أمامي",
+  name: "F4Y2TYG6X غسالة تحميل أمامي",
   model: "F4Y2TYG6X",
   img: "images/F4Y2TYG6X.jpg",
   features: ["التكنولوجيا الأساسية: —", "بخار ThinQ: 10", "برامج على البوردة: 9"],
@@ -1057,5 +1057,6 @@ window.PRODUCTS = [
 }
 
 ];
+
 
 
