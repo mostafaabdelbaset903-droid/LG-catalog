@@ -542,7 +542,7 @@ window.PRODUCTS = [
   id: "fl_F4Y2VYGYP",
   section: "washer",
   line: "Front Load",
-  name: "غسالة تحميل أمامي",
+  name: "F4Y2VYGYP غسالة تحميل أمامي",
   model: "F4Y2VYGYP",
   img: "images/F4Y2VYGYP.jpg",
   features: ["التكنولوجيا الأساسية: 10", "بخار ThinQ: —", "برامج على البوردة: 9"],
@@ -552,7 +552,7 @@ window.PRODUCTS = [
   id: "fl_F4Y2VYGYZ",
   section: "washer",
   line: "Front Load",
-  name: "غسالة تحميل أمامي",
+  name: "F4Y2VYGYZ غسالة تحميل أمامي",
   model: "F4Y2VYGYZ",
   img: "images/F4Y2VYGYZ.jpg",
   features: ["التكنولوجيا الأساسية: —", "بخار ThinQ: 10", "برامج على البوردة: 9"],
@@ -562,7 +562,7 @@ window.PRODUCTS = [
   id: "fl_F4Y2VYGYX",
   section: "washer",
   line: "Front Load",
-  name: "غسالة تحميل أمامي",
+  name: "F4Y2VYGYX غسالة تحميل أمامي",
   model: "F4Y2VYGYX",
   img: "images/F4Y2VYGYX.jpg",
   features: ["التكنولوجيا الأساسية: —", "بخار ThinQ: 10", "برامج على البوردة: 9"],
@@ -572,7 +572,7 @@ window.PRODUCTS = [
   id: "fl_F4Y2TYGYZ",
   section: "washer",
   line: "Front Load",
-  name: "غسالة تحميل أمامي",
+  name: "F4Y2TYGYZ غسالة تحميل أمامي",
   model: "F4Y2TYGYZ",
   img: "images/F4Y2TYGYZ.jpg",
   features: ["التكنولوجيا الأساسية: —", "بخار ThinQ: 10", "برامج على البوردة: 9"],
@@ -582,7 +582,7 @@ window.PRODUCTS = [
   id: "fl_F4Y2TYGYP",
   section: "washer",
   line: "Front Load",
-  name: "غسالة تحميل أمامي",
+  name: "F4Y2TYGYP غسالة تحميل أمامي",
   model: "F4Y2TYGYP",
   img: "images/F4Y2TYGYP.jpg",
   features: ["التكنولوجيا الأساسية: —", "بخار ThinQ: 10", "برامج على البوردة: 9"],
@@ -602,7 +602,7 @@ window.PRODUCTS = [
   id: "fl_F4Y2QYG6P",
   section: "washer",
   line: "Front Load",
-  name: "غسالة تحميل أمامي",
+  name: "F4Y2TYGYP غسالة تحميل أمامي",
   model: "F4Y2QYG6P",
   img: "images/F4Y2QYG6P.jpg",
   features: ["التكنولوجيا الأساسية: —", "بخار ThinQ: 10", "برامج على البوردة: 9"],
@@ -612,7 +612,7 @@ window.PRODUCTS = [
   id: "fl_F4Y2QYG6X",
   section: "washer",
   line: "Front Load",
-  name: "غسالة تحميل أمامي",
+  name: "F4Y2QYG6X غسالة تحميل أمامي",
   model: "F4Y2QYG6X",
   img: "images/F4Y2QYG6X.jpg",
   features: ["التكنولوجيا الأساسية: —", "بخار ThinQ: 10", "برامج على البوردة: 9"],
@@ -624,7 +624,7 @@ window.PRODUCTS = [
   id: "fl_F4X5EYG24",
   section: "washer",
   line: "Front Load",
-  name: "غسالة تحميل أمامي",
+  name: "F4X5EYG24 غسالة تحميل أمامي",
   model: "F4X5EYG24",
   img: "images/F4X5EYG24.jpg",
   features: ["التكنولوجيا الأساسية: AIDD", "بخار ThinQ: 10", "برامج على البوردة: 12"],
@@ -634,7 +634,7 @@ window.PRODUCTS = [
   id: "fl_F4X5RYG24",
   section: "washer",
   line: "Front Load",
-  name: "غسالة تحميل أمامي",
+  name: "F4X5RYG24 غسالة تحميل أمامي",
   model: "F4X5RYG24",
   img: "images/F4X5RYG24.jpg",
   features: ["التكنولوجيا الأساسية: AIDD", "بخار ThinQ: 10", "برامج على البوردة: 12"],
@@ -743,7 +743,7 @@ window.PRODUCTS = [
   section:"fridge",
   name:"GC-X257CQEW",
   img:"images/fridges/GC-X257CQEW.jpg",
-  features:["Smart Inverter Compressor","Multi Air Flow","No Frost"],
+  features:["Smart Inverter Compressor","Non Plumbing Water and Ice Dispenser","Instaview"],
   dims:{w:"913",d:"735",h:"1790"}
 },
 {
@@ -751,7 +751,7 @@ window.PRODUCTS = [
   section:"fridge",
   name:"GC-J257KLKW",
   img:"images/fridges/GC-J257KLKW.jpg",
-  features:["Smart Inverter Compressor","Multi Air Flow","No Frost"],
+  features:["Smart Inverter Compressor","Non Plumbing Water and Ice Dispenser","No Frost"],
   dims:{w:"913",d:"735",h:"1790"}
 },
 {
@@ -767,7 +767,7 @@ window.PRODUCTS = [
   section:"fridge",
   name:"GC-X22FFQAB",
   img:"images/fridges/GC-X22FFQAB.jpg",
-  features:["Smart Inverter Compressor","Multi Air Flow","No Frost"],
+  features:["Smart Inverter Compressor","Non Plumbing Water and Ice Dispenser","Instaview"],
   dims:{w:"835",d:"730",h:"1787"}
 },
 {
@@ -1057,4 +1057,5 @@ window.PRODUCTS = [
 }
 
 ];
+
 
