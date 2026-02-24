@@ -1,366 +1,344 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>LG Catalog - الصفحة الرئيسية</title>
-  <link rel="stylesheet" href="soft-ui.css">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>LG Catalog - الصفحة الرئيسية</title>
+<link rel="stylesheet" href="soft-ui.css">
 
-  <style>
-    body{ overflow-x:hidden; }
+<style>
 
-    /* ===== HERO (Apple-like) ===== */
-    .heroSection{
-      position:relative;
-      height:120vh;
-      display:flex;
-      align-items:center;
-      overflow:hidden;
-      margin-top:18px;
-      border-radius:28px;
-      box-shadow: 0 40px 80px rgba(15,23,42,.18);
-    }
+/* ===== Safety ===== */
+body{ overflow-x:hidden; }
 
-    .heroSticky{
-      position:sticky;
-      top:96px;
-      width:100%;
-      height:calc(100vh - 120px);
-      display:grid;
-      grid-template-columns: 1.05fr .95fr;
-      overflow:hidden;
-      border-radius:28px;
-      background: rgba(255,255,255,.28);
-      backdrop-filter: blur(10px);
-    }
+/* ===== HERO ===== */
 
-    .heroLeft{
-      padding:54px 34px;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      gap:18px;
-      background: linear-gradient(145deg, rgba(255,255,255,.92), rgba(255,255,255,.78));
-      backdrop-filter: blur(20px);
-    }
+.heroSection{
+  position:relative;
+  height:120vh;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  margin-top:18px;
+  border-radius:28px;
+  box-shadow: 0 40px 80px rgba(15,23,42,.18);
+}
 
-    .heroLeft h1{
-      font-size:32px;
-      font-weight:950;
-      line-height:1.25;
-      margin:0;
-    }
+.heroSticky{
+  position:sticky;
+  top:96px;
+  width:100%;
+  height:calc(100vh - 120px);
+  display:grid;
+  grid-template-columns: 1.05fr .95fr;
+  overflow:hidden;
+  border-radius:28px;
+}
 
-    .heroLeft p{
-      font-size:14px;
-      color:var(--muted);
-      line-height:1.9;
-      margin:0;
-      font-weight:700;
-      max-width:520px;
-    }
+.heroLeft{
+  padding:54px 34px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:18px;
+  background: linear-gradient(145deg, rgba(255,255,255,.92), rgba(255,255,255,.78));
+  backdrop-filter: blur(20px);
+}
 
-    .heroButtons{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-top:6px;
-    }
+.heroLeft h1{
+  font-size:32px;
+  font-weight:950;
+  line-height:1.25;
+  margin:0;
+}
 
-    .heroRight{
-      position:relative;
-      overflow:hidden;
-      background:
-        radial-gradient(circle at 30% 30%, rgba(52,211,153,.20), transparent 60%),
-        linear-gradient(160deg,#0f172a,#1e293b);
-    }
+.heroLeft p{
+  font-size:14px;
+  color:var(--muted);
+  line-height:1.9;
+  margin:0;
+  font-weight:700;
+  max-width:520px;
+}
 
-    /* Desktop: الصورة تملأ اليمين */
-    .heroProduct{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-      transform: translateY(var(--parY, 0px)) scale(1.02);
-      will-change: transform;
-      filter: saturate(1.05) contrast(1.03);
-      position:relative;
-      z-index:2;
-    }
+.heroButtons{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
 
-    /* تظليل خفيف */
-    .heroRight::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background: linear-gradient(90deg, rgba(15,23,42,.18), transparent 45%);
-      pointer-events:none;
-      z-index:3;
-    }
+.heroRight{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(52,211,153,.20), transparent 60%),
+    linear-gradient(160deg,#0f172a,#1e293b);
+}
 
-    /* ===== Motion Reveal ===== */
-    [data-motion="true"]{
-      opacity:0;
-      transform: translateY(22px);
-      transition: opacity .9s cubic-bezier(.16,1,.3,1),
-                  transform .9s cubic-bezier(.16,1,.3,1);
-    }
-    .is-in{
-      opacity:1 !important;
-      transform:none !important;
-    }
+/* الصورة */
+.heroProduct{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+  transform: translateY(var(--parY, 0px)) scale(1.02);
+  will-change: transform;
+}
 
-    .cards{ margin-top:34px; }
-    .go{ margin-top:12px; width:100%; }
+/* تظليل خفيف */
+.heroRight::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(90deg, rgba(15,23,42,.18), transparent 45%);
+  pointer-events:none;
+}
 
-    .catIcon{
-      width:46px;height:46px;
-      display:grid;place-items:center;
-      border-radius:16px;
-      border:1px solid rgba(0,0,0,.08);
-      background: rgba(255,255,255,.45);
-      box-shadow: var(--shadowA), var(--shadowB);
-      font-size:22px;
-    }
-    .catTop{ display:flex;align-items:center;gap:12px; margin-bottom:10px; }
-    .catDesc{
-      margin:0;
-      opacity:.82;
-      line-height:1.8;
-      font-weight:700;
-      font-size:13px;
-    }
+/* ===== Reveal Motion ===== */
 
-    .waFloat{
-      position:fixed;
-      right:16px;
-      bottom:16px;
-      width:56px;
-      height:56px;
-      border-radius:18px;
-      display:grid;
-      place-items:center;
-      text-decoration:none;
-      border:1px solid rgba(0,0,0,.10);
-      background: rgba(255,255,255,.70);
-      backdrop-filter: blur(10px);
-      box-shadow: var(--shadowA), var(--shadowB);
-      z-index:9999;
-      font-size:24px;
-    }
-    .waFloat:active{ transform: translateY(1px); }
+[data-motion="true"]{
+  opacity:0;
+  transform: translateY(22px);
+  transition: opacity .9s cubic-bezier(.16,1,.3,1),
+              transform .9s cubic-bezier(.16,1,.3,1);
+}
 
-    /* ===== MOBILE (الأفضل لصورتك) ===== */
-    @media(max-width:900px){
+.is-in{
+  opacity:1 !important;
+  transform:none !important;
+}
 
-      .heroSection{
-        height:auto;
-        border-radius:22px;
-      }
+/* ===== Categories ===== */
 
-      .heroSticky{
-        position:relative;
-        top:auto;
-        height:auto;
-        grid-template-columns:1fr;
-        border-radius:22px;
-      }
+.cards{ margin-top:40px; }
+.go{ margin-top:12px; width:100%; }
 
-      .heroLeft{
-        padding:28px 18px;
-      }
-      .heroLeft h1{ font-size:24px; }
+.catIcon{
+  width:46px;height:46px;
+  display:grid;place-items:center;
+  border-radius:16px;
+  border:1px solid rgba(0,0,0,.08);
+  background: rgba(255,255,255,.45);
+  box-shadow: var(--shadowA), var(--shadowB);
+  font-size:22px;
+}
 
-      .heroRight{
-        height:320px; /* مساحة كويسة للصورة */
-      }
+.catTop{ display:flex;align-items:center;gap:12px; margin-bottom:10px; }
 
-      /* ✅ خلفية blurred من نفس الصورة (شكل Apple) */
-      .heroRight::before{
-        content:"";
-        position:absolute;
-        inset:-30px;
-        background-image: var(--heroImg);
-        background-size: cover;
-        background-position: center;
-        filter: blur(22px) saturate(1.15);
-        transform: scale(1.15);
-        opacity:.55;
-        z-index:1;
-      }
+.catDesc{
+  margin:0;
+  opacity:.82;
+  line-height:1.8;
+  font-weight:700;
+  font-size:13px;
+}
 
-      /* ✅ الموبايل: الصورة كاملة بدون قص */
-      .heroProduct{
-        transform:none !important;
-        object-fit:contain;
-        padding:14px;
-        height:100%;
-      }
+/* WhatsApp */
+.waFloat{
+  position:fixed;
+  right:16px;
+  bottom:16px;
+  width:56px;
+  height:56px;
+  border-radius:18px;
+  display:grid;
+  place-items:center;
+  text-decoration:none;
+  border:1px solid rgba(0,0,0,.10);
+  background: rgba(255,255,255,.70);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadowA), var(--shadowB);
+  z-index:9999;
+  font-size:24px;
+}
 
-      /* نقلل التظليل شوية */
-      .heroRight::after{
-        background: linear-gradient(180deg, rgba(15,23,42,.12), transparent 45%);
-      }
-    }
-  </style>
+/* ===== MOBILE FIX ===== */
+
+@media(max-width:900px){
+
+  .heroSection{
+    height:auto;
+    border-radius:22px;
+  }
+
+  .heroSticky{
+    position:relative;
+    top:auto;
+    height:auto;
+    grid-template-columns:1fr;
+    border-radius:22px;
+  }
+
+  .heroLeft{
+    padding:28px 18px;
+  }
+
+  .heroLeft h1{
+    font-size:24px;
+  }
+
+  /* نخلي الصورة تملى الشاشة */
+  .heroRight{
+    height:420px;
+  }
+
+  .heroProduct{
+    height:100%;
+    width:100%;
+    object-fit:cover;
+    object-position:center;
+    transform:none !important;
+  }
+
+}
+
+</style>
 </head>
 
 <body>
 
 <header>
-  <div class="wrap">
-    <div class="topbar">
-      <div>
-        <div class="title">كتالوج LG - الفرع</div>
-        <div class="subtitle">اختيار موديلات بسرعة + إرسال واتساب + لينك عرض للعميل</div>
+<div class="wrap">
+<div class="topbar">
+<div>
+<div class="title">كتالوج LG - الفرع</div>
+<div class="subtitle">اختيار موديلات بسرعة + إرسال واتساب + لينك عرض للعميل</div>
 
-        <div class="nav">
-          <a class="active" href="index.html">الرئيسية</a>
-          <a href="ac.html">تكييفات</a>
-          <a href="washers.html">غسالات</a>
-          <a href="fridges.html">ثلاجات</a>
-          <a href="builtin.html">Built-in</a>
-          <a href="view.html">عرض العميل</a>
-        </div>
-      </div>
+<div class="nav">
+<a class="active" href="index.html">الرئيسية</a>
+<a href="ac.html">تكييفات</a>
+<a href="washers.html">غسالات</a>
+<a href="fridges.html">ثلاجات</a>
+<a href="builtin.html">Built-in</a>
+<a href="view.html">عرض العميل</a>
+</div>
+</div>
 
-      <button class="btn btnGhost" onclick="location.href='ac.html'">
-        ابدأ الاختيار
-      </button>
-    </div>
-  </div>
+<button class="btn btnGhost" onclick="location.href='ac.html'">
+ابدأ الاختيار
+</button>
+</div>
+</div>
 </header>
 
 <div class="wrap">
 
-  <!-- HERO -->
-  <section class="heroSection" aria-label="Hero">
-    <div class="heroSticky">
+<section class="heroSection">
+<div class="heroSticky">
 
-      <div class="heroLeft">
-        <h1 data-motion="true">تجربة LG الذكية.<br>أداء أقوى لعملائك.</h1>
+<div class="heroLeft">
+<h1 data-motion="true">تجربة LG الذكية.<br>أداء أقوى لعملائك.</h1>
 
-        <p data-motion="true">
-          اختار الموديلات بسرعة، أضفها للسلة،
-          وابعت للعميل واتساب + لينك عرض احترافي خلال ثواني.
-        </p>
+<p data-motion="true">
+اختار الموديلات بسرعة، أضفها للسلة،
+وابعت للعميل واتساب + لينك عرض احترافي خلال ثواني.
+</p>
 
-        <div class="heroButtons" data-motion="true">
-          <button class="btn btnPrimary" onclick="location.href='washers.html'">
-            ابدأ بالغسالات
-          </button>
-          <button class="btn btnGhost" onclick="location.href='view.html'">
-            صفحة عرض العميل
-          </button>
-        </div>
-      </div>
+<div class="heroButtons" data-motion="true">
+<button class="btn btnPrimary" onclick="location.href='washers.html'">
+ابدأ بالغسالات
+</button>
+<button class="btn btnGhost" onclick="location.href='view.html'">
+صفحة عرض العميل
+</button>
+</div>
+</div>
 
-      <!-- ✅ نفس الصورة + blurred background على الموبايل -->
-      <div class="heroRight" style="--heroImg:url('images/washer-hero.png')">
-        <img src="images/washer-hero.png" class="heroProduct" alt="LG Hero">
-      </div>
+<div class="heroRight">
+<img src="images/washer-hero.png" class="heroProduct" alt="LG Hero">
+</div>
 
-    </div>
-  </section>
+</div>
+</section>
 
-  <!-- CATEGORIES -->
-  <section class="section cards">
-    <h2 data-motion="true">الأقسام</h2>
+<section class="section cards">
+<h2 data-motion="true">الأقسام</h2>
 
-    <div class="grid">
-      <div class="card" data-motion="true">
-        <div class="p">
-          <div class="catTop">
-            <div class="catIcon">❄️</div>
-            <div>
-              <div class="name">تكييفات</div>
-              <p class="catDesc">اختيار سعة / نوع وإرسال للعميل.</p>
-            </div>
-          </div>
-          <button class="btn btnAdd go" onclick="location.href='ac.html'">دخول التكييفات</button>
-        </div>
-      </div>
+<div class="grid">
 
-      <div class="card" data-motion="true">
-        <div class="p">
-          <div class="catTop">
-            <div class="catIcon">🧺</div>
-            <div>
-              <div class="name">غسالات / مجففات</div>
-              <p class="catDesc">WashTower / Front Load / Top Load / Dryers.</p>
-            </div>
-          </div>
-          <button class="btn btnAdd go" onclick="location.href='washers.html'">دخول الغسالات</button>
-        </div>
-      </div>
+<div class="card" data-motion="true">
+<div class="p">
+<div class="catTop">
+<div class="catIcon">❄️</div>
+<div>
+<div class="name">تكييفات</div>
+<p class="catDesc">اختيار سعة / نوع وإرسال للعميل.</p>
+</div>
+</div>
+<button class="btn btnAdd go" onclick="location.href='ac.html'">دخول التكييفات</button>
+</div>
+</div>
 
-      <div class="card" data-motion="true">
-        <div class="p">
-          <div class="catTop">
-            <div class="catIcon">🧊</div>
-            <div>
-              <div class="name">ثلاجات</div>
-              <p class="catDesc">الموديلات + المقاسات + أهم المميزات.</p>
-            </div>
-          </div>
-          <button class="btn btnAdd go" onclick="location.href='fridges.html'">دخول الثلاجات</button>
-        </div>
-      </div>
+<div class="card" data-motion="true">
+<div class="p">
+<div class="catTop">
+<div class="catIcon">🧺</div>
+<div>
+<div class="name">غسالات / مجففات</div>
+<p class="catDesc">WashTower / Front Load / Top Load / Dryers.</p>
+</div>
+</div>
+<button class="btn btnAdd go" onclick="location.href='washers.html'">دخول الغسالات</button>
+</div>
+</div>
 
-      <div class="card" data-motion="true">
-        <div class="p">
-          <div class="catTop">
-            <div class="catIcon">🍳</div>
-            <div>
-              <div class="name">Built-in & ميكروويف</div>
-              <p class="catDesc">أفران – مسطحات – شفاطات – ميكروويف.</p>
-            </div>
-          </div>
-          <button class="btn btnAdd go" onclick="location.href='builtin.html'">دخول Built-in</button>
-        </div>
-      </div>
-    </div>
-  </section>
+<div class="card" data-motion="true">
+<div class="p">
+<div class="catTop">
+<div class="catIcon">🧊</div>
+<div>
+<div class="name">ثلاجات</div>
+<p class="catDesc">الموديلات + المقاسات + أهم المميزات.</p>
+</div>
+</div>
+<button class="btn btnAdd go" onclick="location.href='fridges.html'">دخول الثلاجات</button>
+</div>
+</div>
+
+<div class="card" data-motion="true">
+<div class="p">
+<div class="catTop">
+<div class="catIcon">🍳</div>
+<div>
+<div class="name">Built-in & ميكروويف</div>
+<p class="catDesc">أفران – مسطحات – شفاطات – ميكروويف.</p>
+</div>
+</div>
+<button class="btn btnAdd go" onclick="location.href='builtin.html'">دخول Built-in</button>
+</div>
+</div>
+
+</div>
+</section>
 
 </div>
 
-<a class="waFloat" href="https://wa.me/201000000000" target="_blank" title="واتساب">💬</a>
-
-<div class="wrap spacer"></div>
+<a class="waFloat" href="https://wa.me/201000000000" target="_blank">💬</a>
 
 <script>
-  /* Reveal Motion */
-  (function(){
-    const els = Array.from(document.querySelectorAll('[data-motion="true"]'));
-    if(!els.length) return;
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach((e)=>{
-        if(e.isIntersecting){
-          e.target.classList.add('is-in');
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    els.forEach(el => io.observe(el));
-  })();
 
-  /* Parallax (Desktop only) */
-  (function(){
-    const img = document.querySelector('.heroProduct');
-    if(!img) return;
+/* Reveal Animation */
+const elements = document.querySelectorAll('[data-motion="true"]');
+const observer = new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add('is-in');
+observer.unobserve(entry.target);
+}
+});
+},{threshold:0.15});
+elements.forEach(el=>observer.observe(el));
 
-    function update(){
-      const y = window.scrollY || 0;
-      const par = Math.min(60, y * 0.12);
-      img.style.setProperty('--parY', par.toFixed(2) + 'px');
-    }
+/* Parallax Desktop Only */
+if(window.innerWidth > 900){
+const heroImg = document.querySelector('.heroProduct');
+window.addEventListener('scroll',()=>{
+const scroll = window.scrollY;
+heroImg.style.setProperty('--parY', Math.min(60, scroll * 0.12) + 'px');
+});
+}
 
-    if(window.innerWidth > 900){
-      window.addEventListener('scroll', () => requestAnimationFrame(update), { passive:true });
-      window.addEventListener('resize', () => requestAnimationFrame(update));
-      update();
-    }
-  })();
 </script>
 
 </body>
